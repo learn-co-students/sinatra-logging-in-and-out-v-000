@@ -16,7 +16,7 @@ class App < Sinatra::Base
         redirect to '/account'
       end
     end
-    "Incorrect Username/Password Combination"
+    erb :error
   end
 
   get '/account' do
