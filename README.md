@@ -8,11 +8,15 @@ You've been contracted by Flatiron Bank to consult on their online banking appli
 
 MVC architecture relies heavily on the principle of separation of concerns. We make sure that we have a different model for every class we build, that we only have one erb file per view, etc. This even extends to the purposes each of these files has. A model handles our Ruby logic, our controllers handle the HTTP requests and connect to our models, and our views either take in or display data to our users.
 
-This means that we want to minimize the amount of logic our views contain. Our views should never directly pull from the database. All of that should be taken care of in the controller action, and the data should be passed to the view via that controller action.
+This means that we want to minimize the amount of logic our views contain. Our views should never directly pull from the database (ie. `User.all`, etc). All of that should be taken care of in the controller actions, and the data should be passed to the view via a specific controller action.
 
-But if you think about most web applications you use, there is information on most pages that are dependant on being logged in. You can see a lot information if you are logged in, and practically none if you're not. So how can you handle that sort of application flow without logic?
+But if you think about most web applications you use, there is information on most pages that are dependent on being logged in. You can see a lot information if you are logged in, and practically none if you're not. So how can you handle that sort of application flow without logic?
 
 Instead of writing that type of logic directly in your view, we use helper methods. Helper methods are methods that are written in your controller, that are accessible in your views, and provide some support. But a helper method is just a regular method, defined using `def` and `end` just like you've always done.
+
+We're going to define a separate class, located in the `app/helpers` directory that specifically has two class methods designed to control logic in our views. This class `Helper` will have two class methods `current_user` and `is_logged_in?`. 
+
+These two methods will only ever be called in the view, and in particular, `account.erb`, in order to add double protection to this view so that only the current user, when they are logged in, can see the bank account balance.
 
 ## Instructions
 
