@@ -74,13 +74,7 @@ describe 'ApplicationController' do
       get '/account'
       expect(last_response.body).to include('You Must <a href="/">Log In</a> to View Your Balance')
     end
-
-    # it "has only let's a user view balance if logged in" do 
-    #   session.delete("user_id")
-
-    #   get '/account', session
-    #   binding.pry
-    # end
+    
   end
 
   describe "GET '/logout'" do
@@ -88,6 +82,7 @@ describe 'ApplicationController' do
       get '/logout'
       expect(session[:user_id]).to be(nil)
     end
+
   end
 
 end
