@@ -32,6 +32,12 @@ These two methods will only ever be called in the view, and in particular, `acco
 
 + On the `/account` page, set up a link called 'Log Out', which clears the session.
 
-+ In Helper
++ In `app/helpers/helpers.rb`, you'll notice a predefined class `Helpers`. In this class, you'll want to define two **class** methods `current_user` and `is_logged_in?`. 
+
++ `current_user` should accept an argument, which is the session hash. This method should use the `user_id` from the session hash to find the user in the database, and return that user.
+
++ `is_logged_in?` should also accept the session hash as an argument. This method should return true if the user_id is in the session hash and false if not. The Ruby `!!` will come in handy here.
+
++ In `account.erb` you'll want to use the `is_logged_in?` helper method to only display the username and account balance if the user is logged in. Otherwise, it should contain a link to the home page. You'll also want to use `current_user` to display the username and balance. 
 
 
