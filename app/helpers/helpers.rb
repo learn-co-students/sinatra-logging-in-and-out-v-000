@@ -6,8 +6,8 @@ class Helpers
     @user = User.find_by_id(session_info[:user_id])
   end
 
-  def self.is_logged_in?
-    !!session[:user_id]
+  def self.is_logged_in?(session_info)
+    !!session_info[:user_id]
   end
 
 end
