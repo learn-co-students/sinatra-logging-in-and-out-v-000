@@ -10,9 +10,9 @@ MVC architecture relies heavily on the principle of separation of concerns. We m
 
 This means that we want to minimize the amount of logic our views contain. Our views should never directly pull from the database. All of that should be taken care of in the controller action, and the data should be passed to the view via that controller action.
 
-But if you think about most web applications you use, there is information on most pages that are dependant on being logged in. You can see a lot information if you are logged in, and practically none if you're not. So how can you handle that sort of application flow without logic?
+But if you think about most web applications you use, there is information on most pages that are dependent on being logged in. You can see a lot information if you are logged in, and practically none if you're not. So how can you handle that sort of application flow without logic?
 
-Instead of writing that type of logic directly in your view, we use helper methods. Helper methods are methods that are written in your controller, that are accessible in your views, and provide some support. But a helper method is just a regular method, defined using `def` and `end` just like you've always done.
+Instead of writing that type of logic directly in your view, we use helper methods. Helper methods are methods that are written in their own class, that are accessible in your views, and provide some support. It's important to remember that a helper method is just a regular method, defined by using `def` and `end` just like you've always done, that provides help to your views.
 
 ## Instructions
 

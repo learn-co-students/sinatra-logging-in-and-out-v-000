@@ -1,25 +1,36 @@
 require 'spec_helper'
 
-describe 'App' do
+describe 'ApplicationController' do
   describe "GET '/'" do
     it "returns a 200 status code" do
       get '/'
       expect(last_response.status).to eq(200)
     end
+
+    it "contains a form for a user to log in" do 
+      get '/'
+      expect(last_response.body).to include("<input")
+    end
   end
 
   describe "POST '/login'" do
+    before do
+      @user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
+      @user2 = User.create(:username => "flatiron4lyfe", :password => "Rubie!", :balance => 500)
+      @user3 = User.create(:username => "kittens1265", :password => "crazycatlady", :balance => 10000)
+    end
 
     it "returns a 302 redirect status code" do
-      post '/login', {
-        "username"=> "jdorchen", "password" => "elephant"
+      params = {
+        "username"=> "skittles123", "password" => "iluvskittles"
       }
+      post '/login', params
       expect(last_response.status).to eq(302)
     end
 
     it "sets session[:user_id] equal to id of the user" do
       post '/login', {
-        "username"=> "mcaulfield", "password" => "sneaky12"
+        "username"=> "flatiron4lyfe", "password" => "Rubie!"
       }
       follow_redirect!
       expect(session[:user_id]).to eq(2)
@@ -27,23 +38,23 @@ describe 'App' do
 
     it "displays the correct username based on session[:user_id]" do
       post '/login', {
-        "username"=> "dbaron", "password" => "test123"
+        "username"=> "kittens1265", "password" => "crazycatlady"
       }
       follow_redirect!
-      expect(last_response.body).to include('Welcome dbaron')
+      expect(last_response.body).to include('Welcome kittens1265')
     end
 
     it "displays the correct balance based on session[:user_id]" do
       post '/login', {
-        "username"=> "dbaron", "password" => "test123"
+        "username"=> "kittens1265", "password" => "crazycatlady"
       }
       follow_redirect!
-      expect(last_response.body).to include('100')
+      expect(last_response.body).to include('10000')
     end
 
     it "displays a 'Log Out' link" do
       post '/login', {
-        "username"=> "dbaron", "password" => "test123"
+        "username"=> "kittens1265", "password" => "crazycatlady"
       }
       follow_redirect!
       expect(last_response.body).to include('Log Out')
@@ -54,7 +65,7 @@ describe 'App' do
       post '/login', {
         "username"=> "joe", "password" => "nopassword"
       }
-      expect(last_response.body).to include('You Must <a href="/">Log In</a> to View Your Balance')
+      expect(last_response.body).to include('You Must Log In to View Your Balance')
     end
   end
 
