@@ -1,4 +1,3 @@
-require_relative 'helpers_controller'
 
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
@@ -14,17 +13,16 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    User.all.each do |user|
-      if user.username == params[:username] && user.password == params[:password]
-        session[:id] = user.id
+    @user = User.find_by(:username => params[:username])
+      if @user.password == params[:password]
+        session[:user_id] = @user.id
         redirect to '/account'
       end
-    end
     erb :error
   end
 
   get '/account' do
-    @current_user = User.all.select { |user| user.id == session[:id]}.first
+    @current_user = User.find_by_id(session[:user_id])
     if @current_user
       erb :account
     else

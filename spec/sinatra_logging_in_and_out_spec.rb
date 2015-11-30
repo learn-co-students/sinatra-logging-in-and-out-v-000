@@ -17,15 +17,15 @@ describe 'App' do
       expect(last_response.status).to eq(302)
     end
 
-    it "sets session[:id] equal to id of the user" do
+    it "sets session[:user_id] equal to id of the user" do
       post '/login', {
         "username"=> "mcaulfield", "password" => "sneaky12"
       }
       follow_redirect!
-      expect(session[:id]).to eq(2)
+      expect(session[:user_id]).to eq(2)
     end
 
-    it "displays the correct username based on session[:id]" do
+    it "displays the correct username based on session[:user_id]" do
       post '/login', {
         "username"=> "dbaron", "password" => "test123"
       }
@@ -33,7 +33,7 @@ describe 'App' do
       expect(last_response.body).to include('Welcome dbaron')
     end
 
-    it "displays the correct balance based on session[:id]" do
+    it "displays the correct balance based on session[:user_id]" do
       post '/login', {
         "username"=> "dbaron", "password" => "test123"
       }
@@ -68,7 +68,7 @@ describe 'App' do
   describe "GET '/logout'" do
     it "clears the session" do
       get '/logout'
-      expect(session[:id]).to be(nil)
+      expect(session[:user_id]).to be(nil)
     end
   end
 
