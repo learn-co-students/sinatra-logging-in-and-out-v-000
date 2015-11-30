@@ -1,6 +1,10 @@
-require_relative 'config/environment'
-class App < Sinatra::Base
+require_relative 'helpers_controller'
+
+class ApplicationController < Sinatra::Base
+  register Sinatra::ActiveRecordExtension
   configure do
+    set :public_folder, 'public'
+    set :views, 'app/views'
     enable :sessions unless test?
     set :session_secret, "secret"
   end
@@ -36,5 +40,3 @@ class App < Sinatra::Base
 
 end
 
-#Add an array of hashes with usernames/passwords
-#Hashes with 
