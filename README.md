@@ -16,3 +16,5 @@ You've been contracted by Flatiron Bank to consult on their online banking appli
 + If not, redirect the user to the error page.
 
 + On the `/account` page, set up a link called 'Log Out', which clears the session.
+
+<a href='https://learn.co/lessons/sinatra-logging-in-and-out' data-visibility='hidden'>View this lesson on Learn.co</a>
