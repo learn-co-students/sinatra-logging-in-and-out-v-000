@@ -14,9 +14,12 @@ But if you think about most web applications you use, there is information on mo
 
 Instead of writing that type of logic directly in your view, we use helper methods. Helper methods are methods that are written in your controller, that are accessible in your views, and provide some support. But a helper method is just a regular method, defined using `def` and `end` just like you've always done.
 
+
 We're going to define a separate class, located in the `app/helpers` directory that specifically has two class methods designed to control logic in our views. This class `Helper` will have two class methods `current_user` and `is_logged_in?`. 
 
 These two methods will only ever be called in the view, and in particular, `account.erb`, in order to add double protection to this view so that only the current user, when they are logged in, can see the bank account balance.
+
+It's important to note that helper methods can be used for a lot more than just tracking if a user is logged in, and who the current user is. Helpers are methods that make it cleaner to add logic to our views.
 
 ## Instructions
 
