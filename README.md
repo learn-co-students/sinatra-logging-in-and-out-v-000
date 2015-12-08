@@ -16,7 +16,7 @@ Instead of writing that type of logic directly in your view, we use helper metho
 
 ## Instructions
 
-+ You'll want to create one users table. Users should have a username, password, and balance (an integer storing their bank account balance), as well as a corresponding User class.
++ You'll want to create one users table. Users should have a username, password, and balance (a decimal storing their bank account balance), as well as a corresponding User class.
 
 + You'll need to create a login form on the index page that accepts a username and password the form should have a method of `POST` and an action of `login`.
 
