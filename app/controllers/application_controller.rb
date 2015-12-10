@@ -1,5 +1,5 @@
-require_relative 'config/environment'
-class App < Sinatra::Base
+require_relative '../../config/environment'
+class ApplicationController < Sinatra::Base
   configure do
     enable :sessions unless test?
     set :session_secret, "secret"
