@@ -65,6 +65,7 @@ describe 'ApplicationController' do
       post '/login', {
         "username"=> "joe", "password" => "nopassword"
       }
+      follow_redirect!
       expect(last_response.body).to include('You Must Log In to View Your Balance')
     end
   end
