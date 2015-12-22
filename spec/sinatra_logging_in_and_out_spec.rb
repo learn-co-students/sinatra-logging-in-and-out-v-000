@@ -65,7 +65,7 @@ describe 'ApplicationController' do
       post '/login', {
         "username"=> "joe", "password" => "nopassword"
       }
-      expect(last_response.body).to include('You Must Log In to View Your Balance')
+      expect(last_response.body).to include('You Must <a href="/">Log In</a> to View Your Balance')
     end
   end
 
