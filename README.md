@@ -44,3 +44,5 @@ It's important to note that helper methods can be used for a lot more than just 
 + In `account.erb` you'll want to use the `is_logged_in?` helper method to only display the username and account balance if the user is logged in. Otherwise, it should contain a link to the home page. You'll also want to use `current_user` to display the username and balance. 
 
 
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-logging-in-and-out' title='Sinatra Sessions Lab - User Logins'>Sinatra Sessions Lab - User Logins</a> on Learn.co and start learning to code for free.</p>
