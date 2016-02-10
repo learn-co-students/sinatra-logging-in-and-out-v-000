@@ -16,3 +16,10 @@ group :test do
   gem 'rack-test'
   gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
 end
+
+group :development do
+        gem 'shotgun'
+        gem 'pry'
+        gem 'tux'
+        gem 'sqlite3'
+    end
