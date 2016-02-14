@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe 'ApplicationController' do
   describe "GET '/'" do
@@ -82,7 +83,7 @@ describe 'ApplicationController' do
       }
       post '/login', params
       get '/account'
-      expect(last_response.body).to include("<h1>Welcome skittles123</h1>\n      <h3>Your Balance: 1000.0</h3>")
+      expect(last_response.body).to include("<h1>Welcome skittles123</h1>",      "<h3>Your Balance: 1000.0</h3>")
     end
     
   end
