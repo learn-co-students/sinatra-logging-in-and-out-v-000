@@ -16,12 +16,17 @@ class ApplicationController < Sinatra::Base
       redirect to '/account'
     else
       # shows the error page if username and ID do not match available users
-      redirect to '/error'
+      erb :error
     end
   end
 
   get '/account' do
-    erb :account
+    if user_logged_in?(session)
+      @current_user = Helpers.current_user(session)
+      erb :account
+    else
+      erb :error
+    end
   end
 
   get '/logout' do
@@ -29,14 +34,19 @@ class ApplicationController < Sinatra::Base
     redirect to '/'
   end
 
-  get '/error' do
-    erb :error
-  end
+  # get '/error' do
+  #   erb :error
+  # end
 
   private
   def find_by_username(params)
     User.find_by(username: params['username'])
   end
+
+  def user_logged_in?(session)
+    Helpers.is_logged_in?(session)
+  end
+
 end
 
 
