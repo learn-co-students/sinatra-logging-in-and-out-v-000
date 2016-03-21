@@ -31,7 +31,7 @@ It's important to note that helper methods can be used for a lot more than just 
 
 + If there is a match, set the session to the user's id and redirect them to the `/account` route (using `redirect to`) and use ERB to display the user's data on the page.
 
-+ If not, redirect the user to the error page.
++ If not, render the error page.
 
 + On the `/account` page, set up a link called 'Log Out', which clears the session.
 
@@ -46,3 +46,5 @@ It's important to note that helper methods can be used for a lot more than just 
 
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-logging-in-and-out' title='Sinatra Sessions Lab - User Logins'>Sinatra Sessions Lab - User Logins</a> on Learn.co and start learning to code for free.</p>
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-logging-in-and-out'>Sinatra Sessions Lab- User Logins</a> on Learn.co and start learning to code for free.</p>
