@@ -10,7 +10,7 @@ MVC architecture relies heavily on the principle of separation of concerns. We m
 
 This means that we want to minimize the amount of logic our views contain. Our views should never directly pull from the database (ie. `User.all`, etc). All of that should be taken care of in the controller actions, and the data should be passed to the view via a specific controller action.
 
-But if you think about most web applications you use, there is information on most pages that are dependent on being logged in. You can see a lot information if you are logged in, and practically none if you're not. So how can you handle that sort of application flow without logic?
+But if you think about most web applications you use, there is information on most pages that are dependent on being logged in. You can see a lot of information if you are logged in, and practically none if you're not. So how can you handle that sort of application flow without logic?
 
 Instead of writing that type of logic directly in your view, we use helper methods. Helper methods are methods that are written in your controller, that are accessible in your views, and provide some support. But a helper method is just a regular method, defined using `def` and `end` just like you've always done.
 
@@ -25,7 +25,7 @@ It's important to note that helper methods can be used for a lot more than just 
 
 + You'll want to create one users table. Users should have a username, password, and balance (a decimal storing their bank account balance), as well as a corresponding User class.
 
-+ You'll need to create a login form on the index page that accepts a username and password the form should have a method of `POST` and an action of `login`.
++ You'll need to create a login form on the index page that accepts a username and password and `POST`s it with an action of `/login`.
 
 + In the controller action that processes the post request, you'll want to find the user in the database based on it's username. 
 
@@ -37,7 +37,7 @@ It's important to note that helper methods can be used for a lot more than just 
 
 + In `app/helpers/helpers.rb`, you'll notice a predefined class `Helpers`. In this class, you'll want to define two **class** methods `current_user` and `is_logged_in?`. 
 
-+ `current_user` should accept an argument, which is the session hash. This method should use the `user_id` from the session hash to find the user in the database, and return that user.
++ `current_user` should accept an argument, which is the session hash. This method should use the `user_id` from the session hash to find the user in the database and return that user.
 
 + `is_logged_in?` should also accept the session hash as an argument. This method should return true if the user_id is in the session hash and false if not. The Ruby `!!` will come in handy here.
 
