@@ -7,7 +7,7 @@ describe 'ApplicationController' do
       expect(last_response.status).to eq(200)
     end
 
-    it "contains a form for a user to log in" do 
+    it "contains a form for a user to log in" do
       get '/'
       expect(last_response.body).to include("<input")
     end
@@ -21,9 +21,9 @@ describe 'ApplicationController' do
     end
 
     it "returns a 302 redirect status code" do
-      params = {
-        "username"=> "skittles123", "password" => "iluvskittles"
-      }
+      params = { "username"=> "skittles123",
+                 "password" => "iluvskittles" }
+
       post '/login', params
       expect(last_response.status).to eq(302)
     end
@@ -82,9 +82,10 @@ describe 'ApplicationController' do
       }
       post '/login', params
       get '/account'
-      expect(last_response.body).to include("<h1>Welcome skittles123</h1>\n      <h3>Your Balance: 1000.0</h3>")
+      expect(last_response.body).to include("<h1>Welcome skittles123</h1>")
+      expect(last_response.body).to include("<h3>Your Balance: 1000.0</h3>")
     end
-    
+
   end
 
   describe "GET '/logout'" do
