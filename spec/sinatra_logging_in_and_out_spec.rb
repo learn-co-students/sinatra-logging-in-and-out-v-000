@@ -7,7 +7,7 @@ describe 'ApplicationController' do
       expect(last_response.status).to eq(200)
     end
 
-    it "contains a form for a user to log in" do 
+    it "contains a form for a user to log in" do
       get '/'
       expect(last_response.body).to include("<input")
     end
@@ -65,6 +65,7 @@ describe 'ApplicationController' do
       post '/login', {
         "username"=> "joe", "password" => "nopassword"
       }
+      follow_redirect!
       expect(last_response.body).to include('You Must <a href="/">Log In</a> to View Your Balance')
     end
   end
@@ -72,6 +73,7 @@ describe 'ApplicationController' do
   describe "GET '/account'" do
     it "shows the error page if user goes directly to /account" do
       get '/account'
+      follow_redirect!
       expect(last_response.body).to include('You Must <a href="/">Log In</a> to View Your Balance')
     end
 
@@ -84,7 +86,7 @@ describe 'ApplicationController' do
       get '/account'
       expect(last_response.body).to include("<h1>Welcome skittles123</h1>\n      <h3>Your Balance: 1000.0</h3>")
     end
-    
+
   end
 
   describe "GET '/logout'" do
