@@ -13,10 +13,9 @@
 
   	<h1>Welcome <%= Helpers.current_user(session).username %></h1>
   	<h3>Your Balance: <%= Helpers.current_user(session).balance %></h3>
-    <a href='/logout'>Log Out</a>
-  <% else %>
-  	<a href='/'>Home</a>
     
+    <h4><a href='/logout'>Log Out</a></h4> 
   <% end %>
+  
   </body>
 </html>
