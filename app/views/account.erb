@@ -6,10 +6,16 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-<a href="Log Out" onclick="<%= @user.id.destroy %>">Log Out</a>
+  <h1>Welcome <%= Helpers.current_user(@session).username%></h1>
+  <a href="Log Out" onclick="<%= @session.destroy %>">Log Out</a>
+
+    <h3><%= Helpers.current_user(@session).username %></h3>
+    <h3><%= Helpers.current_user(@session).balance %></h3>
+
+    <a href="/home">Home</a>
+
+
   
-  <h3><%=@current_user.balance%></h3>
- 
   </p>
   </body>
 </html>
