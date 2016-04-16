@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-    
-
+<a href="Log Out" onclick="<%= @user.id.destroy %>">Log Out</a>
+  
+  <h3><%=@current_user.balance%></h3>
+ 
+  </p>
   </body>
 </html>
