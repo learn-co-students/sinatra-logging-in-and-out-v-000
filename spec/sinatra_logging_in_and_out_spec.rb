@@ -42,6 +42,7 @@ describe 'ApplicationController' do
         "username"=> "kittens1265", "password" => "crazycatlady"
       }
       follow_redirect!
+      binding.pry
       expect(last_response.body).to include('Welcome kittens1265')
     end
 
