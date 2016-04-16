@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-    
+  <h1>Welcome <%= @user1.username%></h1> 
+  <h3>Your Balance: <%= @user1.balance.to_f%></h3><br>   
 
+  <a href="index.erb">Log Out</a>
   </body>
 </html>
