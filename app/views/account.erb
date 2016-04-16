@@ -11,10 +11,9 @@
     <h3>Your Balance: <%= Helpers.current_user(session).balance %></h3>
   <% else %>
 
-    <%end%>
+  <%end%>
   <a href="Log Out" onclick="<%= session.destroy %>">Log Out</a>
 
-    <a href="/home">Home</a>
 
   </p>
   </body>
