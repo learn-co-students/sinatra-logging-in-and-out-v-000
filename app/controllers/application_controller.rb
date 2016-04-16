@@ -17,10 +17,8 @@ class ApplicationController < Sinatra::Base
   
     
     if @user != nil && @user != ""
-      #binding.pry
       session[:user_id] = @user.id 
       @session = session[:user_id]
-      #binding.pry
       redirect to '/account'
     else
       redirect to '/error'
@@ -34,7 +32,7 @@ class ApplicationController < Sinatra::Base
      erb :account
     else
      erb :error
-   end
+    end
   end
 
   get '/logout' do
