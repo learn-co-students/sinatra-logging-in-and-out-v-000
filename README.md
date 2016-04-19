@@ -15,7 +15,7 @@ But if you think about most web applications you use, there is information on mo
 Instead of writing that type of logic directly in your view, we use helper methods. Helper methods are methods that are written in your controller, that are accessible in your views, and provide some support. But a helper method is just a regular method, defined using `def` and `end` just like you've always done.
 
 
-We're going to define a separate class, located in the `app/helpers` directory that specifically has two class methods designed to control logic in our views. This class `Helpers` will have two class methods `current_user` and `is_logged_in?`. 
+We're going to define a separate class, located in the `app/helpers` directory that specifically has two class methods designed to control logic in our views. This class `Helpers` will have two class methods `current_user` and `is_logged_in?`.
 
 These two methods will only ever be called in the view, and in particular, `account.erb`, in order to add double protection to this view so that only the current user, when they are logged in, can see the bank account balance.
 
@@ -27,21 +27,21 @@ It's important to note that helper methods can be used for a lot more than just 
 
 + You'll need to create a login form on the index page that accepts a username and password and `POST`s it with an action of `/login`.
 
-+ In the controller action that processes the post request, you'll want to find the user in the database based on it's username. 
++ In the controller action that processes the post request, you'll want to find the user in the database based on it's username.
 
 + If there is a match, set the session to the user's id and redirect them to the `/account` route (using `redirect to`) and use ERB to display the user's data on the page.
 
-+ If not, redirect the user to the error page.
++ If not, render the error page.
 
 + On the `/account` page, set up a link called 'Log Out', which clears the session.
 
-+ In `app/helpers/helpers.rb`, you'll notice a predefined class `Helpers`. In this class, you'll want to define two **class** methods `current_user` and `is_logged_in?`. 
++ In `app/helpers/helpers.rb`, you'll notice a predefined class `Helpers`. In this class, you'll want to define two **class** methods `current_user` and `is_logged_in?`.
 
 + `current_user` should accept an argument, which is the session hash. This method should use the `user_id` from the session hash to find the user in the database and return that user.
 
 + `is_logged_in?` should also accept the session hash as an argument. This method should return true if the user_id is in the session hash and false if not. The Ruby `!!` will come in handy here.
 
-+ In `account.erb` you'll want to use the `is_logged_in?` helper method to only display the username and account balance if the user is logged in. Otherwise, it should contain a link to the home page. You'll also want to use `current_user` to display the username and balance. 
++ In `account.erb` you'll want to use the `is_logged_in?` helper method to only display the username and account balance if the user is logged in. Otherwise, it should contain a link to the home page. You'll also want to use `current_user` to display the username and balance.
 
 
 
