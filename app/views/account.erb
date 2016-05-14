@@ -11,9 +11,6 @@
       <h1>Welcome <%= @user.username %></h1>
       <h3>Your Balance: <%= @user.balance %></h3>
       <a href='/logout'>Log Out</a>
-    <% else %>
-      <h1> You are not logged in! </h1>
-      <a href='/'>Log in here </a>
     <% end %>
   </body>
 </html>
