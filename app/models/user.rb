@@ -1,2 +1,2 @@
-class User < ActiveRecord::Base
+class User < ActiveRecord::Base #dont forget to inherit!
 end
