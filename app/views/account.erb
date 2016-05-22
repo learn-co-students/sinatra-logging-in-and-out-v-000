@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="UTF-8">
-  <title>Your Bank Account</title>
-  <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
-</head>
-<body id="page-top">
-   <% if Helpers.is_logged_in?(session) %>
-     <h1>Welcome <%= Helpers.current_user(session).username %></h1>
-     <h3>Your Balance: <%= Helpers.current_user(session).balance %></h3>
-     <a href="/logout">Log Out</a>
-   <% else %>
-     <% redirect_to '/' %>
-   <% end %>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
+  </head>
+  <body id="page-top">
 
- </body>
+    <% if Helper.is_logged_in?(session) %>
+
+      <h1><%= "Welcome " + Helper.current_user(session)["username"] %></h1>
+      <h3><%= "Your Balance: " + Helper.current_user(session)["balance"].to_s %></h3>
+      <a href="/logout">Log Out</a>
+
+    <% else %>
+      <a href="/login">Log In</a>
+    <% end %>
+
+
+
+  </body>
 </html>
