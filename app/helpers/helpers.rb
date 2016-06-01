@@ -1,16 +1,12 @@
+class Helpers
+  attr_accessor :current_user
 
-class Helpers < ActiveRecord::Base
-  def self.current_user(session)
-    @user = User.new
-    @user[:id] = session[:user_id]
-    @user
+
+  def self.current_user(session) 
+    User.find(session[:user_id])  
   end
 
   def self.is_logged_in?(session)
-    if session[:user_id] == @user[:id]
-      true
-    else
-      false
-    end
+    !!session[:user_id]
   end
 end
