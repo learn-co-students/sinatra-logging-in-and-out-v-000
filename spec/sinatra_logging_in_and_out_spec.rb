@@ -82,6 +82,7 @@ describe 'ApplicationController' do
       }
       post '/login', params
       get '/account'
+      
       expect(last_response.body).to include("<h1>Welcome skittles123</h1>")
       expect(last_response.body).to include("<h3>Your Balance: 1000.0</h3>")
     end
