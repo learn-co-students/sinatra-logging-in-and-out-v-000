@@ -10,6 +10,18 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get '/signup' do
+
+    erb :signup
+  end
+
+  post '/registrations' do 
+    @user = User.new(username: params[:username], password: params[:password], balance: params[:balance])
+    @user.save
+    session[:user_id] = @user.id
+    redirect '/account'
+  end
+
   post '/login' do
     @user = User.find_by(username: params[:username], password: params[:password])
     if @user
@@ -21,13 +33,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    if !Helpers.is_logged_in?(session)
-      erb :error
-    else
-      @user = Helpers.current_user(session)
+    @current_user = User.find_by_id(session[:user_id])
+    if @current_user
       erb :account
+    else
+      erb :error
     end
-    
   end
 
   get '/logout' do
