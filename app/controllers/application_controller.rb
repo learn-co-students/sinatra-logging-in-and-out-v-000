@@ -10,12 +10,16 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  get '/signup' do
+  # The `get '/signup'` and `post '/resistrations'` routes were added
+  # in order to create a user and save him/her to the database to
+  # test all the other routes.
+
+  get '/signup' do # not part of original lab
 
     erb :signup
   end
 
-  post '/registrations' do 
+  post '/registrations' do # not part of original lab
     @user = User.new(username: params[:username], password: params[:password], balance: params[:balance])
     @user.save
     session[:user_id] = @user.id
