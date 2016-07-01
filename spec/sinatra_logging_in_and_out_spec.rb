@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'pry'
 
 describe 'ApplicationController' do
   describe "GET '/'" do
@@ -7,7 +8,7 @@ describe 'ApplicationController' do
       expect(last_response.status).to eq(200)
     end
 
-    it "contains a form for a user to log in" do
+    it "contains a form for a user to log in" do 
       get '/'
       expect(last_response.body).to include("<input")
     end
@@ -41,6 +42,7 @@ describe 'ApplicationController' do
         "username"=> "kittens1265", "password" => "crazycatlady"
       }
       follow_redirect!
+      binding.pry
       expect(last_response.body).to include('Welcome kittens1265')
     end
 
@@ -82,9 +84,9 @@ describe 'ApplicationController' do
       }
       post '/login', params
       get '/account'
-      expect(last_response.body).to include("<h1>Welcome skittles123</h1>")
-      expect(last_response.body).to include("<h3>Your Balance: 1000.0</h3>")
+      expect(last_response.body).to include("<h1>Welcome skittles123</h1>\n      <h3>Your Balance: 1000.0</h3>")
     end
+    
   end
 
   describe "GET '/logout'" do
