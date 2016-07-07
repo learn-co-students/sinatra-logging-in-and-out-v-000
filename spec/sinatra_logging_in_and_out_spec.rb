@@ -60,13 +60,13 @@ describe 'ApplicationController' do
       expect(last_response.body).to include('Log Out')
     end
 
-
     it "shows the error page if username and ID do not match available users" do
       post '/login', {
         "username"=> "joe", "password" => "nopassword"
       }
       expect(last_response.body).to include('You Must <a href="/">Log In</a> to View Your Balance')
     end
+
   end
 
   describe "GET '/account'" do
