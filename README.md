@@ -10,39 +10,36 @@ MVC architecture relies heavily on the principle of separation of concerns. We m
 
 This means that we want to minimize the amount of logic our views contain. Our views should never directly pull from the database (ie. `User.all`, etc). All of that should be taken care of in the controller actions, and the data should be passed to the view via a specific controller action.
 
-But if you think about most web applications you use, there is information on most pages that are dependent on being logged in. You can see a lot of information if you are logged in, and practically none if you're not. So how can you handle that sort of application flow without logic?
+But if you think about most web applications you use, there is information on most pages that is dependent on being logged in. You can see a lot of information if you are logged in and practically none if you're not. So how can you handle that sort of application flow without logic?
 
-Instead of writing that type of logic directly in your view, we use helper methods. Helper methods are methods that are written in your controller, that are accessible in your views, and provide some support. But a helper method is just a regular method, defined using `def` and `end` just like you've always done.
+Instead of writing that type of logic directly into a view, we use helper methods. Helper methods are methods that are written in the controller, are accessible in the views, and provide some logical support. But a helper method is just a regular method, defined using `def` and `end` just like you've always done.
 
+In the `app/helpers` directory, we're going to define a separate class specifically designed to control logic in our views. This `Helpers` class will have two class methods, `current_user` and `is_logged_in?`.
 
-We're going to define a separate class, located in the `app/helpers` directory that specifically has two class methods designed to control logic in our views. This class `Helpers` will have two class methods `current_user` and `is_logged_in?`.
+These two methods will only ever be called in views, particularly `account.erb`, in order to add double protection to this view so that only the current user, when they are logged in, can see their bank account balance.
 
-These two methods will only ever be called in the view, and in particular, `account.erb`, in order to add double protection to this view so that only the current user, when they are logged in, can see the bank account balance.
-
-It's important to note that helper methods can be used for a lot more than just tracking if a user is logged in, and who the current user is. Helpers are methods that make it cleaner to add logic to our views.
+It's important to note that helper methods can be used for a lot more than just tracking whether a user is logged in and who the current user is. Helpers are methods that make it cleaner to add logic to our views.
 
 ## Instructions
 
-+ You'll want to create one users table. Users should have a username, password, and balance (a decimal storing their bank account balance), as well as a corresponding User class.
++ You'll want to create a User class and a table to store users. Users should have a username, password, and balance (a decimal storing their bank account balance).
 
-+ You'll need to create a login form on the index page that accepts a username and password and `POST`s it with an action of `/login`.
++ You'll need to create a login form on the index page that accepts a username and password and sends a `POST` request with an action of `/login`.
 
-+ In the controller action that processes the post request, you'll want to find the user in the database based on it's username.
++ In the controller action that processes the `POST` request, you'll want to find the user in the database based on their username.
 
-+ If there is a match, set the session to the user's id and redirect them to the `/account` route (using `redirect to`) and use ERB to display the user's data on the page.
++ If there is a match, set the session to the user's ID, redirect them to the `/account` route (using `redirect to`), and use ERB to display the user's data on the page.
 
-+ If not, render the error page.
++ If there is no match, render the error page.
 
-+ On the `/account` page, set up a link called 'Log Out', which clears the session.
++ On the `/account` page, set up a link called 'Log Out' that clears the session.
 
-+ In `app/helpers/helpers.rb`, you'll notice a predefined class `Helpers`. In this class, you'll want to define two **class** methods `current_user` and `is_logged_in?`.
++ In `app/helpers/helpers.rb`, you'll notice a predefined `Helpers` class. In this class, you'll want to define two **class** methods, `current_user` and `is_logged_in?`.
 
-+ `current_user` should accept an argument, which is the session hash. This method should use the `user_id` from the session hash to find the user in the database and return that user.
++ `current_user` should accept the session hash as an argument. This method should use the `user_id` from the session hash to find the user in the database and return that user.
 
-+ `is_logged_in?` should also accept the session hash as an argument. This method should return true if the user_id is in the session hash and false if not. The Ruby `!!` will come in handy here.
++ `is_logged_in?` should also accept the session hash as an argument. This method should return true if the `user_id` is in the session hash and false if not. The Ruby `!!` operator will come in handy here.
 
-+ In `account.erb` you'll want to use the `is_logged_in?` helper method to only display the username and account balance if the user is logged in. Otherwise, it should contain a link to the home page. You'll also want to use `current_user` to display the username and balance.
-
-
++ In `account.erb`, you'll want to use the `is_logged_in?` helper method to only display the username and account balance if the user is logged in. Otherwise, it should contain a link to the home page. You'll also want to use `current_user` to display the username and balance.
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-logging-in-and-out' title='Sinatra Sessions Lab - User Logins'>Sinatra Sessions Lab - User Logins</a> on Learn.co and start learning to code for free.</p>
