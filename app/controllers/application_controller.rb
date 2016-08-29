@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    @logged_in_user = User.find_by_is(session[:id])
+    @logged_in_user = User.find_by_id(session[:id])
     erb :account
   end
 
