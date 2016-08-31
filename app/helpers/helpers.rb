@@ -1,6 +1,7 @@
 class Helpers
 
   def self.current_user(session)
+     # the session is {:user_id=>1}
     User.find(session[:user_id])
   end
 
