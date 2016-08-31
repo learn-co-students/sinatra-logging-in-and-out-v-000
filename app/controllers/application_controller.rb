@@ -26,7 +26,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    @session = session 
+    @session = session[:user_id]
     erb :account
   end
 
