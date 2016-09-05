@@ -15,9 +15,9 @@ describe 'ApplicationController' do
 
   describe "POST '/login'" do
     before do
-      @user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
-      @user2 = User.create(:username => "flatiron4lyfe", :password => "Rubie!", :balance => 500)
-      @user3 = User.create(:username => "kittens1265", :password => "crazycatlady", :balance => 10000)
+      @user1 = User.create(:user_name => "skittles123", :password => "iluvskittles", :balance => 1000)
+      @user2 = User.create(:user_name => "flatiron4lyfe", :password => "Rubie!", :balance => 500)
+      @user3 = User.create(:user_name => "kittens1265", :password => "crazycatlady", :balance => 10000)
     end
 
     it "returns a 302 redirect status code" do
@@ -76,7 +76,7 @@ describe 'ApplicationController' do
     end
 
     it 'displays the account information if a user is logged in' do
-      @user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
+      @user1 = User.create(:user_name => "skittles123", :password => "iluvskittles", :balance => 1000)
       params = {
         "username"=> "skittles123", "password" => "iluvskittles"
       }
