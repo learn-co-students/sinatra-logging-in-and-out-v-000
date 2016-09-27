@@ -7,8 +7,8 @@
   </head>
   <body id="page-top">
     <% if Helpers.is_logged_in?(session) %>
-      <h3>Welcome<%= @user.username %></h3>
-      <p>Account Balance:<%= @user.balance %></p>
+      <h3>Welcome <%= @user.username %></h3>
+      <p>Account Balance: <%= @user.balance %></p>
     <% else %>
       <a href="/">Home</a>
     <% end %>
