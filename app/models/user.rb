@@ -1,6 +1,3 @@
-class User
-
-  def initialize(params)
-  end
+class User < ActiveRecord::Base
 
 end
