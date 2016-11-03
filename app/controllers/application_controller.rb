@@ -1,3 +1,4 @@
+require "pry"
 require_relative '../../config/environment'
 class ApplicationController < Sinatra::Base
   configure do
@@ -6,6 +7,8 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "secret"
   end
 
+
+
   get '/' do
     erb :index
   end
@@ -13,7 +16,7 @@ class ApplicationController < Sinatra::Base
   post '/login' do
     @user = User.find_by(username: params[:username])
     if !@user.nil?
-      session[:id] = @user.id
+      session[:user_id] = @user.id
       redirect "/account"
     else
       erb :error
@@ -21,7 +24,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-
+    erb :account
   end
 
   get '/logout' do
