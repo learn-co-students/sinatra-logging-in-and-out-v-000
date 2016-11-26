@@ -76,7 +76,7 @@ describe 'ApplicationController' do
     end
 
     it 'displays the account information if a user is logged in' do
-      @user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
+      @user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000.0)
       params = {
         "username"=> "skittles123", "password" => "iluvskittles"
       }
