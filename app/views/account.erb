@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -7,6 +9,16 @@
   </head>
   <body id="page-top">
     
+      <% if Helpers.current_user.is_logged_in?(session) %>
+        
+        <h1>Welcome <%= Helpers.current_user(session).username %></h1>
+        <h3>Your Balance: <%= Helpers.current_user(session).balance %></h3>
+x
+        <a href="/sessions/logout">Log Out</a>
+      <% else %>
+        <a href="/views/index">Home Page</a>
+      <% end %>
+
 
   </body>
 </html>
