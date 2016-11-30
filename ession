@@ -1,0 +1,23 @@
+=> [32m#<Rack::MockResponse:0x00000003fd1e90[0m
+ @block[32m=[0m[1;36mnil[0m,
+ @body[32m=[0m
+  [[31m[1;31m"[0m[31m<!DOCTYPE html>[1;35m\n[0m[31m<html>[1;35m\n[0m[31m  <head>[1;35m\n[0m[31m    <meta charset=[1;35m\"[0m[31mUTF-8[1;35m\"[0m[31m>[1;35m\n[0m[31m    <title>title</title>[1;35m\n[0m[31m    <link rel=[1;35m\"[0m[31mstylesheet[1;35m\"[0m[31m href=[1;35m\"[0m[31mstylesheets/bootstrap.css[1;35m\"[0m[31m type=[1;35m\"[0m[31mtext/css[1;35m\"[0m[31m>  [1;35m\n[0m[31m  </head>[1;35m\n[0m[31m  <body id=[1;35m\"[0m[31mpage-top[1;35m\"[0m[31m>[1;35m\n[0m[31m    <h1>You Must <a href=[1;35m\"[0m[31m/[1;35m\"[0m[31m>Log In</a> to View Your Balance</h1>[1;35m\n[0m[31m[1;35m\n[0m[31m  </body>[1;35m\n[0m[31m</html>[1;31m"[0m[31m[0m],
+ @body_string[32m=[0m[1;36mnil[0m,
+ @chunked[32m=[0m[1;36mfalse[0m,
+ @errors[32m=[0m[31m[1;31m"[0m[31m[1;31m"[0m[31m[0m,
+ @header[32m=[0m
+  {[31m[1;31m"[0m[31mContent-Type[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mtext/html;charset=utf-8[1;31m"[0m[31m[0m,
+   [31m[1;31m"[0m[31mContent-Length[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m280[1;31m"[0m[31m[0m,
+   [31m[1;31m"[0m[31mX-XSS-Protection[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m1; mode=block[1;31m"[0m[31m[0m,
+   [31m[1;31m"[0m[31mX-Content-Type-Options[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mnosniff[1;31m"[0m[31m[0m,
+   [31m[1;31m"[0m[31mX-Frame-Options[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mSAMEORIGIN[1;31m"[0m[31m[0m},
+ @length[32m=[0m[1;34m280[0m,
+ @original_headers[32m=[0m
+  {[31m[1;31m"[0m[31mContent-Type[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mtext/html;charset=utf-8[1;31m"[0m[31m[0m,
+   [31m[1;31m"[0m[31mContent-Length[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m280[1;31m"[0m[31m[0m,
+   [31m[1;31m"[0m[31mX-XSS-Protection[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31m1; mode=block[1;31m"[0m[31m[0m,
+   [31m[1;31m"[0m[31mX-Content-Type-Options[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mnosniff[1;31m"[0m[31m[0m,
+   [31m[1;31m"[0m[31mX-Frame-Options[1;31m"[0m[31m[0m=>[31m[1;31m"[0m[31mSAMEORIGIN[1;31m"[0m[31m[0m},
+ @status[32m=[0m[1;34m200[0m,
+ @writer[32m=[0m
+  [32m#<Proc:0x00000003fd1b20@/usr/local/rvm/gems/ruby-2.3.1/gems/rack-1.6.4/lib/rack/response.rb:30 (lambda)>[0m[32m>[0m
