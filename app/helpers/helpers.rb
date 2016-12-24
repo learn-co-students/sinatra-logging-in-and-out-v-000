@@ -1,12 +1,11 @@
-require 'pry'
-class Helpers
+class Helpers < ActiveRecord::Base
 
-  def current_user(session)
-    binding.pry
-    session
+  def self.current_user(session)
+    User.find(session[:user_id])
   end
 
-  def is_logged_in?(session)
+  def self.is_logged_in?(session)
+    !(!session[:user_id])
   end
-  
+
 end
