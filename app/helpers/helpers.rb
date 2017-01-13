@@ -9,5 +9,4 @@ class Helpers
   def self.is_logged_in?(session_info)
     !!session_info["user_id"]
   end
-
 end
