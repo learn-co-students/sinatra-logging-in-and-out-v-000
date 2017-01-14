@@ -11,6 +11,7 @@ gem 'shotgun'
 gem 'pry'
 
 group :test do
+  gem 'rb-readline'
   gem 'rspec'
   gem 'capybara'
   gem 'rack-test'
