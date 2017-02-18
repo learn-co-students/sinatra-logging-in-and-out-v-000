@@ -1,3 +1,4 @@
+require 'pry'
 require_relative '../../config/environment'
 class ApplicationController < Sinatra::Base
   configure do
@@ -7,10 +8,14 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    binding.pry
     erb :index
   end
 
   post '/login' do
+    # raise params.inspect
+    binding.pry
+    @user = User.find(session[:id])
 
   end
 
@@ -24,4 +29,3 @@ class ApplicationController < Sinatra::Base
 
 
 end
-
