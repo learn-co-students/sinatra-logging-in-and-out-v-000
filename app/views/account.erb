@@ -8,13 +8,12 @@
   <body id="page-top">
 <h1>Your Account</h1>    
       <% if Helpers.is_logged_in?(@session) %>
-   <h3>Welcome <%=Helpers.current_user(@session).username%></h3>
-    <p>Balance: <%=Helpers.current_user(@session).balance%></p>
+   <h1>Welcome <%=Helpers.current_user(@session).username%></h1>
+    <h3>Your Balance: <%=Helpers.current_user(@session).balance%></h3>
     <% end %>
     <br>
     <!-- Log out button -->
-    <form method="post" action="/logout">
-        <input type="submit" value="Log Out">
-    </form>
+        <a href='/logout'>Log Out</a>
+    
   </body>
 </html>

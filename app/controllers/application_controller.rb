@@ -18,18 +18,19 @@ class ApplicationController < Sinatra::Base
             session[:user_id] = @user.id
             redirect to '/account'
         else
-            "Error" 
+            "You Must <a href=\"/\">Log In</a> to View Your Balance" 
         end
     end
 
     get '/account' do
 
-        @user = User.find(session[:user_id])
-        if @user
+        
+        if Helpers.is_logged_in?(session)
+            @user = User.find(session[:user_id])
             @session = session
             erb :account
         else
-            "Error" 
+            'You Must <a href="/">Log In</a> to View Your Balance'
         end
     end
 
