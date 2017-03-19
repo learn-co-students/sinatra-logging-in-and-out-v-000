@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-
-    <a href="/sessions/logout">Log Out</a>
+    <% binding.pry %>
+    <h1>Welcome <%= Helper.current_user(session).username %></h1>
+    <h2>Your balance: $<%= Helper.current_user(session).balance %></h2><br><br>
+    <a href="/logout">Log Out</a>
   </body>
 </html>
