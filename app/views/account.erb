@@ -6,7 +6,14 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-    
+    <div>
+    	<h1>Welcome <%=@user.username%></h1>
+    	<h3>Your Balance: <%=@user.balance%></h3>
+    	<form action="/logout" method="get">
+    		<h4><input type="submit" value="Click Here to logout" id="Log Out"></h4>
+    	</form>
+    	<h4></h4>
+    </div>
 
   </body>
 </html>
