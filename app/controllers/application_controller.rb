@@ -7,17 +7,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
+    User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
     erb :index
   end
 
   post '/login' do
-    # # binding.pry
-    # # raise params.inspect
-    @user = User.find_by(username: params[:username])
-    # @user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
-
-    # puts @user.name
-    # puts @user1.name
+    @user = User.find_by(username: params[:username], password: params[:password])
     if @user
       session[:user_id] = @user.id
       redirect '/account'
