@@ -5,8 +5,20 @@
     <title>title</title>
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
-  <body id="page-top">
+  <body id="page-top">  
+
     
+    
+  	<% @user = Helpers.current_user(session) %>
+    <% if Helpers.is_logged_in?(session) %>
+    	<h1>Welcome <%= @user.username %></h1>
+    	<h3>Your Balance: <%= '%.1f' % @user.balance %></h3>
+    <% else %> 
+      <h3>You Must <a href="/">Log In</a> to View Your Balance</h3>
+     <% end %>	
+
+    	
+	<a href="/sessions/logout">Log Out</a>
 
   </body>
 </html>
