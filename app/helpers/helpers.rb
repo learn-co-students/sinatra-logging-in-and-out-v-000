@@ -1,7 +1,10 @@
+require 'pry'
 class Helpers
-  def self.current_user
+  def self.current_user(hash)
+    User.find(hash[:user_id])
   end
 
-  def self.is_logged_in?
+  def self.is_logged_in?(hash)
+    return true if hash[:user_id]
   end
 end
