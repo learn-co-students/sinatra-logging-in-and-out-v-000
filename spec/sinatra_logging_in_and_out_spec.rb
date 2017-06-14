@@ -28,12 +28,12 @@ describe 'ApplicationController' do
       expect(last_response.status).to eq(302)
     end
 
-    it "sets session[:user_id] equal to id of the user" do
+    it "sets session[:id] equal to id of the user" do
       post '/login', {
         "username"=> "flatiron4lyfe", "password" => "Rubie!"
       }
       follow_redirect!
-      expect(session[:user_id]).to eq(2)
+      expect(session[:id]).to eq(2)
     end
 
     it "displays the correct username based on session[:user_id]" do
@@ -95,9 +95,9 @@ describe 'ApplicationController' do
       }
       post '/login', params
       get '/logout'
-      expect(session[:user_id]).to be(nil)
+      expect(session[:id]).to be(nil)
     end
-    
+
     it 'redirects to \'/\'' do
       get '/logout'
       follow_redirect!
