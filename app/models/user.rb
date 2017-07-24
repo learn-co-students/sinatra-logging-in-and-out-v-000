@@ -1,5 +1,6 @@
-class User
-
+#create a User class
+class User < ActiveRecord::Base
+#Users should have a username, password, and balance
  attr_accessor :id, :username, :password, :balance
 
  def initialize(id, username, password, balance)
@@ -8,7 +9,7 @@ class User
    @password = password
    @balance = balance
  end
-
+#create a User table to store users
  def self.create_table
    sql =  <<-SQL
      CREATE TABLE IF NOT EXISTS users (
