@@ -32,7 +32,7 @@ It's important to note that helper methods can be used for a lot more than just 
 
 + If there is no match, render the error page.
 
-+ On the `/account` page, set up a link called 'Log Out' that clears the session.#####What Does This Mean?????
++ On the `/account` page, set up a link called 'Log Out' that clears the session.
 
 + In `app/helpers/helpers.rb`, you'll notice a predefined `Helpers` class. In this class, you'll want to define two **class** methods, `current_user` and `is_logged_in?`.
 
