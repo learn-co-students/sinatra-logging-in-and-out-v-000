@@ -28,13 +28,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-
-      #binding.pry
+      #@user = User.find(session[:id])
       if Helpers.is_logged_in?(session)#called for Helpers instead of self
-        @user = User.find(session[:user_id])
         erb :account
-      #elsif Helpers.current_user(session)#called for Helpers instead of self
-      #  erb :account
+      elsif Helpers.current_user(session)#called for Helpers instead of self
+        erb :account
       else
         erb :error
       end
