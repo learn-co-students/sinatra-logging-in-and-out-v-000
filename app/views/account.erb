@@ -6,8 +6,9 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    <%=@user.username %>
-    <a href="/views/logout">Log Out</a>
+    <p>Welcome <%=@user.username %></p>
+    <p>Your Balance <%=@user.balance%></p>
+    <a href="/logout">Log Out</a>
     <!-- will it hit the right link? -->
   </body>
 </html>
