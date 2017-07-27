@@ -6,9 +6,18 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
+    <%if Helpers.current_user(session)%>
     <h1>Welcome <%= Helpers.current_user(session).username%></h1>
-    <h3>Your Balance <%= Helpers.current_user(session).balance%></h3>
+    <% binding.pry; %>
+    <h3>Your Balance: <%= Helpers.current_user(session).balance%></h3>
     <a href="/logout">Log Out</a>
+    <%elsif Helpers.is_logged_in?(session)%>
+    <h1>Welcome <%= Helpers.current_user(session).username%></h1>
+    <h3>Your Balance: <%= Helpers.current_user(session).balance%></h3>
+    <a href="/logout">Log Out</a>
+    <%else %>
+      '/error'
+    <%end %>
     <!-- will it hit the right link? -->
   </body>
 </html>

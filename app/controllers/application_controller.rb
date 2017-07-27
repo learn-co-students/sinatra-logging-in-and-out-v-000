@@ -29,13 +29,9 @@ class ApplicationController < Sinatra::Base
 
   get '/account' do
       #@user = User.find(session[:id])
-      if Helpers.is_logged_in?(session)#called for Helpers instead of self
-        binding.pry
-        erb :account
-      elsif Helpers.current_user(session)#called for Helpers instead of self
+      if session[:user_id]#called for Helpers instead of self
         #binding.pry
         erb :account
-      #  erb :error
       else
         erb :error
       end
@@ -43,6 +39,6 @@ class ApplicationController < Sinatra::Base
 
   get '/logout' do
     session.clear
-    erb :index
+    redirect '/'
   end
 end

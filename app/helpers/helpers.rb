@@ -11,7 +11,7 @@ class Helpers
      #binding.pry
      @user_id2 = User.find(session[:user_id])
      #binding.pry
-     if @user_id2 
+     if @user_id2
        true
      else
        false
