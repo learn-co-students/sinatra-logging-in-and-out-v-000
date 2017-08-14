@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-    
-
+    <%current_user = User.find(session[:id])%>
+    <!-- In account.erb, you'll want to use the is_logged_in? helper method to only display the username and account balance if the user is logged in. Otherwise, it should contain a link to the home page. You'll also want to use current_user to display the username and balance. -->
+    <h1>Welcome <%=current_user.username%></h1>
+    <h3>Your balance: <%=current_user.balance%></h3>
+    <a href='/logout'>Log Out</a>
   </body>
 </html>
