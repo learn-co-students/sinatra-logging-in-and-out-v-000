@@ -1,6 +1,6 @@
-describe "Helpers" do 
+describe "Helpers" do
 
-  describe 'Helpers#current_user' do 
+  describe 'Helpers#current_user' do
     it "returns the current user" do
       @user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
 
