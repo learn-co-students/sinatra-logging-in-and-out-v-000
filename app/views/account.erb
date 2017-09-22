@@ -2,14 +2,14 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title><%= @user.username%> Account:</title>
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    <h3>Balance</h3>
-    <p>
-      <%= @user.balance%>
-    </p>
+    <% if Helpers.is_logged_in?(@user) %>
+      <h1>Welcome <%= Helpers.current_user(@user).username %></h1>
+
+      <h3>Your Balance: <%= Helpers.current_user(@user).balance %></h3>
+    <% end %>
 
     <a href="/logout">Log Out</a>
   </body>
