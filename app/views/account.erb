@@ -2,11 +2,15 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <title><%= @user.username%> Account:</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    
+    <h3>Balance</h3>
+    <p>
+      <%= @user.balance%>
+    </p>
 
+    <a href="/logout">Log Out</a>
   </body>
 </html>
