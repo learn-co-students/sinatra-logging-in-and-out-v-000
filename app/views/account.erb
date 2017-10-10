@@ -3,10 +3,14 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    
+    <% Helper.is_logged_in? %>
+    <% Helper.current_user %>
+    <p>Welcome <%= @user.username %></p>
+    <p><a href="/logout">Log Out</a></p>
+
 
   </body>
 </html>
