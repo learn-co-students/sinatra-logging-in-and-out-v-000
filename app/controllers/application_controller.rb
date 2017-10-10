@@ -11,17 +11,21 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    @user = User.find_by(username: params[:username], password: params[:password])
-    if @user == nil
-      erb :error
+    @user = User.find_by(username: params[:username])
+    if @user != nil
+      session[:user_id] = @user.id
+      redirect '/account'
     else
-      session[:id] = @user.id
+      erb :error
     end
-    redirect '/account'
   end
 
   get '/account' do
-    erb :account
+    if session[:user_id] != nil
+      erb :account
+    else
+      erb :error
+    end
   end
 
   get '/logout' do
