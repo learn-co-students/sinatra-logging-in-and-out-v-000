@@ -40,6 +40,7 @@ describe 'ApplicationController' do
       post '/login', {
         "username"=> "kittens1265", "password" => "crazycatlady"
       }
+    
       follow_redirect!
       expect(last_response.body).to include('Welcome kittens1265')
     end
@@ -97,7 +98,7 @@ describe 'ApplicationController' do
       get '/logout'
       expect(session[:user_id]).to be(nil)
     end
-    
+
     it 'redirects to \'/\'' do
       get '/logout'
       follow_redirect!
