@@ -1,7 +1,7 @@
 class Helpers
 
   def self.current_user(session_hash)
-    @current_user = User.all.find(session_hash[:user_id])
+    @current_user = User.find(session_hash[:user_id])
     @current_user
   end
 
