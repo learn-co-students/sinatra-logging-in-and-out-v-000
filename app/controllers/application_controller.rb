@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  # Find user in db if @user.id exists, redirect to account page
+  # Submit credentials, find user in db by id, if found, redirect to account page, else error page
   post '/login' do
     if @user = User.find_by(params)
       session[:user_id] = @user.id
@@ -22,14 +22,17 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  # Find @current_user by user_id, if so, display account, else error page
   get '/account' do
-    if Helpers.is_logged_in?(session)
+    @current_user = User.find_by(session[:user_id])
+    if @current_user
       erb :account
     else
       erb :error
     end
   end
 
+  # Clear session hash
   get '/logout' do
     session.clear
     redirect '/'
