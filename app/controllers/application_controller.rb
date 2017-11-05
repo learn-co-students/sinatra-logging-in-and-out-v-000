@@ -11,8 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    @user = User.find_by(username: params["username"], password: params["password"])
-    if @user
+    if @user = User.find_by(username: params["username"], password: params["password"])
       session[:user_id] = @user.id
       redirect '/account'
     else
@@ -20,13 +19,15 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  # post '/login' do
+  #     if user = User.find_by(username: params["username"], password: params["password"])
+  #       session[:user_id] = user.id
+  #     end
+  #     redirect '/account'
+  # end
+
   get '/account' do
-    @user = User.find_by_id(session[:user_id])
-    if @user
-      erb :account
-    else
-      'You Must <a href="/">Log In</a> to View Your Balance'
-    end
+    erb :account
   end
 
   get '/logout' do
