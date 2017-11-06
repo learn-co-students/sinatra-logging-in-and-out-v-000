@@ -5,13 +5,34 @@
  */
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+/* The following are CSS tags that I made: */
+#custom-form-1 {
+  background-color: #e0ffd0;
+  width: 200px;
+}
+
+#custom-form-2 {
+  background-color: #dcf9a0;
+  width: 200px;
+  padding: .35em .625em .75em;
+  margin: 10 10px;
+  border: 14px solid #c0c0c0;
+}
+
+#long-form {
+  background-color: lightblue;
+  width: 400px;
+}
+
+/* The following are CSS tags that already existed as part of the lab: */
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
 body {
-  margin: 0;
+  margin: 130;
 }
 article,
 aside,

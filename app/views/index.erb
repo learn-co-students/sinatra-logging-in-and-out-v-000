@@ -3,11 +3,33 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
     <h1>Welcome to FlatBank</h1>
     <h3>Log In Please</h3>
+
+    <form method="post" action="/login">
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="Password"> <!-- capitalized this last "P" -->
+      <input type="submit">
+    </form>
+
+      <br>
+
+    <form>
+      <!-- <textarea rows="3" cols="30" id="TITLE">Type crap in here</textarea> -->
+      <input type="text" name="snafu" placeholder="I'm just an expirement in this lab just for fun" id="long-form">
+      <input type="submit">
+    </form>
+      <br>
+    <form>
+      My Form One: <input type="text" id="custom-form-1" name="one"><br>
+      My Form Two: <input type="text" id="custom-form-2" name="two"><br>
+      My Form Twe: <input type="text" id="custom-form-1" name="three"><br>
+      <input type="submit" style="background-color:#dcf9a0;">
+    </form>
+
 
   </body>
 </html>
