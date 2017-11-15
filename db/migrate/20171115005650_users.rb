@@ -3,7 +3,7 @@ class Users < ActiveRecord::Migration
     create_table :dogs do |t|
       t.string :username
       t.string :password
-      t.string :balance
+      t.decimal :balance
     end
   end
 end
