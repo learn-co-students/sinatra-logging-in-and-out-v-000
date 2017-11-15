@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20171115005650) do
 
   create_table "dogs", force: :cascade do |t|
-    t.string  "username"
-    t.string  "password"
-    t.decimal "balance"
+    t.string "username"
+    t.string "password"
+    t.string "balance"
   end
 
 end
