@@ -5,6 +5,6 @@ class Helpers
   end
 
   def is_logged_in?(session)
-    @user.id !! in session
+    !!session.include?(@user.id)
   end
-end 
+end
