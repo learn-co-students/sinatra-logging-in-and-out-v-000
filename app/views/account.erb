@@ -5,8 +5,14 @@
     <title>title</title>
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
-  <body id="page-top">
-    
+  <body id="page-top"> 
+    <p><% if @user.is_logged_in?%></p> 
+      <p><%= @user.username%></p>
+      <p><%= @user.balance%></p> 
+      <p><% else%></p> 
+      <a href="/login">Log In</a>
 
+
+    <a href="/logout">Log Out</a>
   </body>
 </html>
