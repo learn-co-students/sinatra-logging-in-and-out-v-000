@@ -1,4 +1,5 @@
 require_relative '../../config/environment'
+require 'pry'
 class ApplicationController < Sinatra::Base
   configure do
     set :views, Proc.new { File.join(root, "../views/") }
@@ -20,7 +21,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    if @user = User.find(session[:user_id])
+    #@user_test = User.find(session[:user_id]) <-- this line doesn't work
+    #for the following test
+    #shows the error page if user goes directly to /account
+    if @user_test = User.find_by_id(session[:user_id])
+      #binding.pry
       erb :account
     else
       erb :error
