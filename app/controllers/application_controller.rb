@@ -4,7 +4,9 @@ require 'sinatra'
 class ApplicationController < Sinatra::Base
 
   configure do
-    set :views, Proc.new { File.join(root, "../views/") }
+    set :public_folder, 'public'
+    set :views, 'app/views'
+    # set :views, Proc.new { File.join(root, "../views/") }
     enable :sessions unless test?
     set :session_secret, "secret"
   end
@@ -14,13 +16,15 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    #find based on their username 
-    # if match, 
+    
+    
     @user = User.find_by("username" => params[:username])
+     
     if @user != nil and @user.password == params[:password]
       sesssion[:user_id] = @user.id
       redirect to '/account'
       end 
+
     erb :error
   end
 
