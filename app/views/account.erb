@@ -6,7 +6,17 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-    
-
-  </body>
+  	<%if Helpers.is_logged_in?(session) %>
+  	
+  	<h2>Welcome <%= Helpers.current_user(session).username %></h2>
+   	<h2>Your Balance: <%= Helpers.current_user(session).balance %></h2>
+   
+   <h3><a href="/logout">Log Out</a> </h3> 
+   <% end %>
+ 
+<!--    ##this will clear the session - what will it link to? 
+ -->  
+</body>
 </html>
+
+<!-- <input text="" name="" value=""> -->
