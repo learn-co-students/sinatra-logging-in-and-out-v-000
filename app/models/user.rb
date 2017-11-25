@@ -1,6 +1,9 @@
-class Users < ActiveRecord::Base
-	# validates_presence_of :username, :password, :balance
 
+require_relative '../../config/environment'
+require 'sinatra'
+
+class User < ActiveRecord::Base
+	
 
 end 
 
