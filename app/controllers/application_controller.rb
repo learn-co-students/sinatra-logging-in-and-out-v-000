@@ -4,6 +4,7 @@ require 'sinatra'
 class ApplicationController < Sinatra::Base
 
   configure do
+    #ask for explanation on this 
     set :public_folder, 'public'
     set :views, 'app/views'
     # set :views, Proc.new { File.join(root, "../views/") }
@@ -15,9 +16,7 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
-  post '/login' do
-    
-    
+  post '/login' do  
     @user = User.find_by(:username => params[:username])
     if @user != nil && @user.password == params[:password]
       session[:user_id] = @user.id
