@@ -6,7 +6,12 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-
+    <% if Helpers.current_user(session) == @user %>
+      <h1>Welcome <%= @user.username %></h1>
+      <h3>Your Balance: <%= @user.balance %></h3>
+     <% else %>
+       <a href="/index"></a>
+     <% end %>
 
     <form action="/logout" method="post">
       <input type="submit" value="Log Out">
