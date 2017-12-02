@@ -11,7 +11,6 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    puts params
     if User.find_by(username: params["username"])
       @user = User.find_by(username: params["username"])
       session[:user_id] = @user.id
@@ -22,9 +21,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    @current_user = Helpers.current_user(session)
-
-    erb :account
+    if Helpers.is_logged_in?(session)
+      @current_user = Helpers.current_user(session)
+      erb :account
+    else
+      erb :error
+    end
 
   end
 
