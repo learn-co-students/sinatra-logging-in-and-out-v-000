@@ -33,6 +33,7 @@ class ApplicationController < Sinatra::Base
         erb :account
     else
       erb :error
+#understand? 
     end 
   end
 
