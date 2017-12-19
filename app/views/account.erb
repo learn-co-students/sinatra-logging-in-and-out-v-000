@@ -1,3 +1,5 @@
+<% #binding.pry %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,6 +8,17 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
+    
+    <% if Helpers.is_logged_in?(session) %>
+      <% #binding.pry %>
+      <h1>Welcome <%= @user.username %></h1>
+      <h3>Your Balance: <%= @user.balance %></h3>
+    <% else %>
+    <% #binding.pry %>
+      <a href="/index">Homepage</a> 
+    <% end %>
+    
+    <a href="/logout">Log Out</a>
     
 
   </body>
