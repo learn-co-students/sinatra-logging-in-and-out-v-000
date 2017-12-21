@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates_presence_of :username, :password, :balance  #reflects the columns in our databse
+#  validates_presence_of :username, :password, :balance  #reflects the columns in our databse
 end
 
 
