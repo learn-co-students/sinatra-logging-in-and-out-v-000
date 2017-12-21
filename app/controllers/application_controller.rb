@@ -14,13 +14,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-
+binding.pry
     erb :index
   end
 
 #is Readable
   post '/login' do
-binding.pry
+#binding.pry
   @user = User.find_by(username: params["username"], password: params["password"])  #this searchs our database using username, and password which are passed into as arguments from our params has which we got in the form
 
   session[:id] = @user.id #this adds an id paramter to our current session, and sets it to our user instance variable's id
