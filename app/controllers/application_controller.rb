@@ -7,12 +7,12 @@
 require_relative '../../config/environment'
 class ApplicationController < Sinatra::Base
   #sets sessions
-  #register Sinatra::ActiveRecordExtension
+  register Sinatra::ActiveRecordExtension
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'#, Proc.new { File.join(root, "../views/") }
-#    enable :sessions unless test?
-#    set :session_secret, "secret"
+    enable :sessions unless test?
+    set :session_secret, "secret"
   end
 
   get '/' do
@@ -26,7 +26,8 @@ class ApplicationController < Sinatra::Base
 
          if User.find_by(username: params["username"])
              @user = User.find_by(username: params["username"], password: params["password"])  #this searchs our database using username, and password which are passed into as arguments from our params has which we got in the form
-             session[:id] = @user.id #this adds an id paramter to our current session, and sets it to our user instance variable's id
+#binding.pry
+             session[:user_id] = @user.id #this adds an id paramter to our current session, and sets it to our user instance variable's id
          #binding.pry
              redirect '/account'
          else
@@ -35,15 +36,21 @@ class ApplicationController < Sinatra::Base
    end
 
    get '/account' do
-
+     #binding.pry
+        erb :account
    end
 
-   get '/logout' do
-
+    get '/logout' do
+#     binding.pry
+     session.clear
+     redirect to '/'
    end
 
 
 end
+
+# =>    skittles123
+# =>    iluvskittles
 
 # =>    post '/sessions' do
 # =>      @user = User.find_by(username: params["username"], password: params["password"])
