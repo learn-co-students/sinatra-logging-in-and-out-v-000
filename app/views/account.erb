@@ -3,10 +3,24 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    
 
+<!-- by activating ruby we can tap into our current session hash-->
+
+
+
+<% if Helpers.is_logged_in?(session) %>
+    <h1>Welcome <%=Helpers.current_user(session).username%></h1>
+    <h3>Your Balance: <%=Helpers.current_user(session).balance%></h3>
+
+    <form method="GET" action="/logout">
+        <button type="submit" value ="logout">Log Out</button>
+    </form>
+
+<% else %>
+    <h3>You Must <a href="/">Log In</a> to View Your Balance</h3>
+<% end %>
   </body>
 </html>
