@@ -1,7 +1,6 @@
 require 'sinatra/base'
 require 'pry'
 
-
 class Helpers
 
   def self.current_user(session)
@@ -9,7 +8,7 @@ class Helpers
   end
 
   def self.is_logged_in?(session)
-    session[:user_id]
+    !!session[:user_id]
   end
 
 end
