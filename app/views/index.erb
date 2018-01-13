@@ -11,11 +11,12 @@
     <% if @error %>
       <div class="alert alert-warning">
         <%= @error %>
+        You Must <a href="/">Log In</a> to View Your Balance
       </div>
     <% end %>
     <form method="post" action="/login">
-      <input type="text" name="login[username]" placeholder="Username">
-      <input type="password" name="login[password]" placeholder="password">
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="password" placeholder="password">
       <input type="submit">
     </form>
   </body>
