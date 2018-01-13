@@ -8,6 +8,15 @@
   <body id="page-top">
     <h1>Welcome to FlatBank</h1>
     <h3>Log In Please</h3>
-
+    <% if @error %>
+      <div class="alert alert-warning">
+        <%= @error %>
+      </div>
+    <% end %>
+    <form method="post" action="/login">
+      <input type="text" name="login[username]" placeholder="Username">
+      <input type="password" name="login[password]" placeholder="password">
+      <input type="submit">
+    </form>
   </body>
 </html>
