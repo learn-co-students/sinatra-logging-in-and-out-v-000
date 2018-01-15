@@ -5,6 +5,6 @@ class Helpers < ActiveRecord::Base
 	end
 	
 	def self.is_logged_in?(session)
-		self.current_user(session) ? true : false
+		!!self.current_user(session) ? true : false
 	end
 end
