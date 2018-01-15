@@ -11,7 +11,13 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-
+#	  binding.pry
+	  user = User.find_by("username")
+	  if user
+      erb :account
+    else
+      erb :error
+    end
   end
 
   get '/account' do
