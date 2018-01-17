@@ -9,9 +9,3 @@ class Helpers
         # !!session[:user_id]
     end
 end
-
-         # else
-      #   # redirect to '/error'
-      #no erb here, so is redirect (to) an erb method? Do I need the to?
-      # params is whatever is entered by user that matches correct key?
- #so "else" was not necessary? is this generally possible?

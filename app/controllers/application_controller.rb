@@ -1,5 +1,4 @@
 require_relative '../../config/environment'
-require 'pry'
 
 class ApplicationController < Sinatra::Base
   configure do
@@ -16,14 +15,13 @@ class ApplicationController < Sinatra::Base
     @user = User.find_by(:username => params[:username])
       if @user != nil && @user.password == params[:password]
         session[:user_id] = @user.id
-        # binding.pry
         redirect to '/account'
+      else
+        erb :error
     end 
-    erb :error
   end
   
   get '/account' do
-    # binding.pry
     @logged_in_user = User.find_by_id(session[:user_id])
     if @logged_in_user
       erb :account
