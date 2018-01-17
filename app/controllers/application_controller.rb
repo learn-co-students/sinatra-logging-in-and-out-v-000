@@ -11,15 +11,26 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-
+    @user = User.find_by(:username => params[:username])
+      if @user != nil && @user.password == params[:password]
+        session[:user_id] = @user.id
+        redirect to '/account'
+      # else
+      #   # redirect to '/error'
+      #no erb here, so is redirect (to) an erb method? Do I need the to?
+      # params is whatever is entered by user that matches correct key?
+    end 
+    erb :error
+    #so "else" was not necessary? is this generally possible?
   end
-
+  
   get '/account' do
-
+    
   end
 
   get '/logout' do
-
+    session.clear
+    redirect to '/'
   end
 
 
