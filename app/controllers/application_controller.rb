@@ -16,12 +16,14 @@ class ApplicationController < Sinatra::Base
     @user = User.find_by(:username => params[:username])
       if @user != nil && @user.password == params[:password]
         session[:user_id] = @user.id
+        # binding.pry
         redirect to '/account'
     end 
     erb :error
   end
   
   get '/account' do
+    # binding.pry
     @logged_in_user = User.find_by_id(session[:user_id])
     if @logged_in_user
       erb :account
@@ -29,8 +31,6 @@ class ApplicationController < Sinatra::Base
       erb :error
     end
   end
-
-  # Why is @user nil?
 
   get '/logout' do
     session.clear
