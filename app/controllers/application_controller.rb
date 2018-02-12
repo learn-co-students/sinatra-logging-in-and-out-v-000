@@ -14,11 +14,30 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
+    # extract username and password values from params hash
+    # look for user with these values in db
+    #   if found,
+    #     save id to session[:user_id]
+    #     redirect to /account
+    #   else
+    #     redirect to error / try again page
+    @user = User.find_by(
+      username: params[:username],
+      password: params[:password]
+    )
 
+    if @user
+      session[:user_id] = @user.id
+      redirect '/account'
+    else
+      erb :error
+    end
   end
 
   get '/account' do
+    redirect '/' unless Helpers.is_logged_in(hash)
 
+    erb :account
   end
 
   get '/logout' do
