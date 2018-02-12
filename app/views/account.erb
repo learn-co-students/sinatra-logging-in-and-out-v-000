@@ -8,8 +8,8 @@
   <body id="page-top">
     <% user = Helpers.current_user(session) %>
     
-    <p>Welcome <%= user.username %></p>
-    <p>Your balance is: <%= user.balance %></p>
+    <h1>Welcome <%= user.username %></h1>
+    <h3>Your Balance: <%= user.balance %></h3>
     <p><a href='/logout'>Log Out</a></p>
 
   </body>
