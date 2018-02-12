@@ -8,6 +8,15 @@
   <body id="page-top">
     <h1>Welcome to FlatBank</h1>
     <h3>Log In Please</h3>
+      <form action="/login" method="post">
+        <% ["username", "password"].each do |field_name| %>
+          <div class='labeled_form_field'>
+            <label for=<%= field_name %>><%= field_name.capitalize %>: </>
+            <input type='text' name=<%= field_name %> />
+          </div>
+        <% end %>
 
+        <input type='submit' id='submit'>
+      </form>
   </body>
 </html>
