@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
-  </head>
-  <body id="page-top">
-    
+<% if is_logged_in? %>
 
-  </body>
-</html>
+<% user = current_user(session) %>
+
+<h1>
+<%= user.username %>
+</h1>
+
+<h3>
+<%= user.balance %>
+</h3>
+<a href="/logout">Log Out</a>
+
+<% end %>
+
+<a href="/">Home</a>
