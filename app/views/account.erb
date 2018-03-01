@@ -1,16 +1,14 @@
-<% if is_logged_in? %>
+<% if Helpers.is_logged_in?(session) %>
 
-<% user = current_user(session) %>
+<% user = Helpers.current_user(session) %>
 
-<h1>
-<%= user.username %>
-</h1>
+<h1>Welcome <%= user.username %></h1>
 
-<h3>
-<%= user.balance %>
-</h3>
+<h3>Your Balance: <%= user.balance %></h3>
 <a href="/logout">Log Out</a>
 
-<% end %>
+<% else %>
 
-<a href="/">Home</a>
+<h1>You Must <a href="/">Log In</a> to View Your Balance</h1>
+
+<% end %>
