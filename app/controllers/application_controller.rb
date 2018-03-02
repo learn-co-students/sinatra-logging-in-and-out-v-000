@@ -24,7 +24,7 @@ class ApplicationController < Sinatra::Base
   get '/account' do
     #binding.pry
     @session = session
-    if Helpers.is_logged_in?(@session)
+    if request.referrer == "http://example.org/login"
       erb :account
     else
       erb :error
