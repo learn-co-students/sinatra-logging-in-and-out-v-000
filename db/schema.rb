@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20180308021511) do
 
   create_table "users", force: :cascade do |t|
-    t.string  "name"
+    t.string  "username"
     t.string  "password"
     t.decimal "balance"
   end

@@ -1,3 +1,3 @@
-class Post < ActiveRecord::Base
-  validates_presence_of :name, :email, :password
+class User < ActiveRecord::Base
+#  validates_presence_of :name, :email, :password
 end
