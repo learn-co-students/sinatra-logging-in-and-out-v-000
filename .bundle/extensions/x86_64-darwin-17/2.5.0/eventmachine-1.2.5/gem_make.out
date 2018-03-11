@@ -1,0 +1,16 @@
+current directory: /Users/mikekruszewski/Development/flatiron/Sinatra/sinatra-activerecord-crud/sinatra-sessions-lab-user-logins/.bundle/gems/eventmachine-1.2.5/ext/fastfilereader
+/Users/mikekruszewski/.rvm/rubies/ruby-2.5.0/bin/ruby -r ./siteconf20180310-50725-1go48kd.rb extconf.rb
+creating Makefile
+
+current directory: /Users/mikekruszewski/Development/flatiron/Sinatra/sinatra-activerecord-crud/sinatra-sessions-lab-user-logins/.bundle/gems/eventmachine-1.2.5/ext/fastfilereader
+make "DESTDIR=" clean
+
+current directory: /Users/mikekruszewski/Development/flatiron/Sinatra/sinatra-activerecord-crud/sinatra-sessions-lab-user-logins/.bundle/gems/eventmachine-1.2.5/ext/fastfilereader
+make "DESTDIR="
+compiling mapper.cpp
+compiling rubymain.cpp
+linking shared-object fastfilereaderext.bundle
+
+current directory: /Users/mikekruszewski/Development/flatiron/Sinatra/sinatra-activerecord-crud/sinatra-sessions-lab-user-logins/.bundle/gems/eventmachine-1.2.5/ext/fastfilereader
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 fastfilereaderext.bundle ./.gem.20180310-50725-1mhnwg1
