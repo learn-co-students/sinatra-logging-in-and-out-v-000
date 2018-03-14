@@ -22,17 +22,17 @@ It's important to note that helper methods can be used for a lot more than just 
 
 ## Instructions
 
-+ You'll want to create a User class and a table to store users. Users should have a username, password, and balance (a decimal storing their bank account balance).
+[X] You'll want to create a User class and a table to store users. Users should have a username, password, and balance (a decimal storing their bank account balance).
 
-+ You'll need to create a login form on the index page that accepts a username and password and sends a `POST` request with an action of `/login`.
+[X] You'll need to create a login form on the index page that accepts a username and password and sends a `POST` request with an action of `/login`.
 
-+ In the controller action that processes the `POST` request, you'll want to find the user in the database based on their username.
+[X] In the controller action that processes the `POST` request, you'll want to find the user in the database based on their username.
 
-+ If there is a match, set the session to the user's ID, redirect them to the `/account` route (using `redirect to`), and use ERB to display the user's data on the page.
+[X] If there is a match, set the session to the user's ID, redirect them to the `/account` route (using `redirect to`), and use ERB to display the user's data on the page.
 
-+ If there is no match, render the error page.
+[X]If there is no match, render the error page.
 
-+ On the `/account` page, set up a link called 'Log Out' that clears the session.
+[X] On the `/account` page, set up a link called 'Log Out' that clears the session.
 
 + In `app/helpers/helpers.rb`, you'll notice a predefined `Helpers` class. In this class, you'll want to define two **class** methods, `current_user` and `is_logged_in?`.
 
