@@ -1,5 +1,6 @@
 ENV["SINATRA_ENV"] ||= "development"
-
+require 'active_record'
+require 'sinatra'
 require 'sinatra/activerecord/rake'
 require_relative './config/environment'
 
