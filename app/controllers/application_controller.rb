@@ -1,3 +1,4 @@
+require 'pry'
 require_relative '../../config/environment'
 class ApplicationController < Sinatra::Base
   configure do
@@ -12,6 +13,14 @@ class ApplicationController < Sinatra::Base
 
   post '/login' do
 
+    @new_user = User.create(:username => params[:username], :password => params[:password])
+    #
+    # if @user = User.find(params[:username])
+    #   session = @user.id
+    #   redirect to '/account'
+    # else
+    #   erb :'error'
+    # end
   end
 
   get '/account' do
@@ -24,4 +33,3 @@ class ApplicationController < Sinatra::Base
 
 
 end
-
