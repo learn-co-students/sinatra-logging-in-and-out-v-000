@@ -12,7 +12,7 @@ class ApplicationController < Sinatra::Base
 
   post '/login' do
     binding.pry
-    @user = User.find_by_id(params[:username])
+    @user = User.find_or_create_by(username: params[:username])
     if @user != nil
       redirect to '/account'
     else
