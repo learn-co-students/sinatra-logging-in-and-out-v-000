@@ -5,7 +5,8 @@ class Helpers
     @user
   end
 
-  def is_logged_in?
-    
+  def is_logged_in?(session)
+    !session[user_id]
   end
+
 end
