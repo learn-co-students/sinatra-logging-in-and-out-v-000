@@ -3,10 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    
-
+    <h1>Welcome <%= @user.username %></h1>
+    <h3>Your Balance: <%= @user.balance %></h3>
+    <form method="get" action="/logout">
+      <input type="submit" value="Log Out" id="logout">
+    </form>
   </body>
 </html>
