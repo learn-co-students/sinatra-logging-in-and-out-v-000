@@ -4,6 +4,6 @@ class Helpers
   end
 
   def self.is_logged_in?(sesh)
-    !!User.find(sesh[:user_id])
+    !!sesh[:user_id]
   end
 end
