@@ -21,7 +21,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    # we check for current logged in user
+    # we check for current logged in user and match it with what we already have.
     @current_user = User.find_by_id(session[:user_id])
     if @current_user
       erb :account
