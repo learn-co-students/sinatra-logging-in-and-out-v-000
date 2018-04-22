@@ -11,6 +11,7 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
+<<<<<<< HEAD
     puts params
       if User.find_by(params[:email])
         session[:user_id] = User.find_by(params[:email]).id
@@ -20,6 +21,10 @@ class ApplicationController < Sinatra::Base
         redirect to '/'
 
       end
+=======
+    
+    redirect './views/account'
+>>>>>>> 9e36ad970499b1105e20adc25276212f4bcf48c8
   end
 
 
