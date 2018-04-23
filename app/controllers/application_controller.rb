@@ -11,25 +11,18 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-<<<<<<< HEAD
     puts params
-      if User.find_by(params[:email])
-        session[:user_id] = User.find_by(params[:email]).id
-        @user = User.find_by(params[:email])
+      if User.find_by(username: params[:username])
+        session[:user_id] = User.find_by(username: params[:username]).id
         redirect to '/account'
       else
-        redirect to '/'
-
+        redirect '/'
       end
-=======
-    
-    redirect './views/account'
->>>>>>> 9e36ad970499b1105e20adc25276212f4bcf48c8
   end
 
 
   get '/account' do
-    @user = User.find_by(params[:email])
+    @user = User.find_by(id: session[:user_id])
     erb :account
 
   end
