@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    <p>Welcome <%=@user.username%></p>
-    <p><%=@user.balance%></p>
-
+    <h1>Welcome <%=@user.username%></h1>
+    <h3>Your Balance: <%=@user.balance%>.0</h3>
+  <form action='/logout' method="GET">
     <input type="submit" value="Log Out">
-
+  </form>
 
   </body>
 </html>
