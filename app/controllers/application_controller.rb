@@ -12,6 +12,7 @@ class ApplicationController < Sinatra::Base
 
   post '/login' do
     @user = User.find_by(username: params["username"], password: params["password"])
+# if the user id mataches what in the data base
     if @user
     session[:user_id] = @user.id
     redirect '/account'
@@ -23,6 +24,7 @@ class ApplicationController < Sinatra::Base
   get '/account' do
     # we check for current logged in user and match it with what we already have.
     @current_user = User.find_by_id(session[:user_id])
+    # current user is projected in the account page
     if @current_user
       erb :account
     else
