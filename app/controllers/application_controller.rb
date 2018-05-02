@@ -6,13 +6,14 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "secret"
   end
 
+
   get '/' do
     erb :index
   end
 
   post '/login' do
+    # Note: we are not creating a user here.. we are finding user we have  in the data base
     @user = User.find_by(username: params["username"], password: params["password"])
-# if the user id mataches what in the data base
     if @user
     session[:user_id] = @user.id
     redirect '/account'
@@ -34,6 +35,8 @@ class ApplicationController < Sinatra::Base
 
   get '/logout' do
      session.clear
+     # redirect to the home page
+
      redirect '/'
   end
 
