@@ -3,11 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
     <h1>Welcome to FlatBank</h1>
     <h3>Log In Please</h3>
+
+    <form  action="/login" method="post">
+        <h3>username</h3><input type="text" name="username">
+        <h3>email</h3><input type="text" name="email">
+        <h3>password</h3><input type="text" name="password">
+        <button type="submit">Log In</button>
+    </form>
 
   </body>
 </html>

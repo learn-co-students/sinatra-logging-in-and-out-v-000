@@ -3,10 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    
+
+  <%if Helpers.is_logged_in?(session)%>
+  <!-- helpers are just a suppliment for not having tomuch code in our view file -->
+     <!-- it is also extra layer of security where logind in user can only see the information -->
+
+    <h1>Welcome <%= @current_user.username%></h1>
+     <!-- @ current_user is from our Helper method -->
+
+    <h3>Your Balance: <%= @current_user.balance%></h3>
+      <a href="/logout">Log Out</a>
+    <%end%>
 
   </body>
 </html>
