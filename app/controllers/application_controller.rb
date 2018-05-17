@@ -21,13 +21,13 @@ class ApplicationController < Sinatra::Base
 
   get '/account' do
     # "GET session user_id = #{session[:user_id]}"
-    if !session[:user_id] || !User.find(session[:user_id])
-      erb :error
-    else
+    if session[:user_id] && User.find(session[:user_id])
       @user = User.find(session[:user_id])
       session[:user_id] = @user.id
       @session = session
       erb :account
+    else
+      erb :error
     end
   end
 
