@@ -10,5 +10,5 @@ class Helpers
         else
             false
         end
-    end
+    end 
 end
