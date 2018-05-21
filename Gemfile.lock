@@ -52,7 +52,7 @@ GEM
     rack-test (0.8.3)
       rack (>= 1.0, < 3)
     rake (12.3.0)
-    require_all (2.0.0)
+    require_all (1.5.0)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -92,7 +92,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord (~> 5.1, >= 5.1.5)
+  activerecord
   capybara
   database_cleaner!
   pry
@@ -101,10 +101,10 @@ DEPENDENCIES
   require_all
   rspec
   shotgun
-  sinatra (~> 2.0, >= 2.0.1)
-  sinatra-activerecord (~> 2.0, >= 2.0.13)
+  sinatra
+  sinatra-activerecord
   sqlite3
   thin
 
 BUNDLED WITH
-   1.16.1
+   1.16.0
