@@ -15,13 +15,17 @@ class ApplicationController < Sinatra::Base
     if @user.nil?
       erb :error
     else
-      session[:id] = @user.id
+      session[:user_id] = @user.id
       redirect '/account'
     end
   end
 
   get '/account' do
-    erb :account
+    if  session[:user_id]
+      erb :account
+    else
+      erb :error
+    end
   end
 
   get '/logout' do
