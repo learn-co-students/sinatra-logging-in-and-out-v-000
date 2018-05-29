@@ -11,7 +11,12 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-
+    @user = User.find(id: params[:id])
+    if @user
+      redirect '/account'
+    else
+      redirect '/error'
+    end
   end
 
   get '/account' do
@@ -24,4 +29,3 @@ class ApplicationController < Sinatra::Base
 
 
 end
-
