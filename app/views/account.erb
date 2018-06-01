@@ -10,8 +10,9 @@
     <% if Helpers.is_logged_in?(session)%>
       <p>Welcome <%=@user.username%> your balance is <%=@user.balance%> </p>
     <% else %>
+    <% binding.pry %>
       <p> You must <a href="/index"> Log In </a> to view your balance<p>
     <%end%>
-    <a href="/index">Log out</a>
+    <a href="/index">Log Out</a>
   </body>
 </html>
