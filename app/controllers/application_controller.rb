@@ -11,15 +11,17 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+
   post '/login' do
     # Note: we are not creating a user here.. we are finding user we have  in the data base
     @user = User.find_by(username: params["username"], password: params["password"])
+
     if @user
     session[:user_id] = @user.id
     redirect '/account'
-  else
+     else
     erb :error
-  end
+    end
   end
 
   get '/account' do

@@ -7,6 +7,8 @@
   </head>
   <body id="page-top">
 
+    <%binding.pry%>
+
   <%if Helpers.is_logged_in?(session)%>
   <!-- helpers are just a suppliment for not having tomuch code in our view file -->
      <!-- it is also extra layer of security where logind in user can only see the information -->
@@ -15,6 +17,7 @@
      <!-- @ current_user is from our Helper method -->
 
     <h3>Your Balance: <%= @current_user.balance%></h3>
+
       <a href="/logout">Log Out</a>
     <%end%>
 
