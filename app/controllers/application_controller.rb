@@ -32,9 +32,10 @@ class ApplicationController < Sinatra::Base
       #Helpers.current_user(session)
       #@user = Helpers.current_user(session)
       erb :account
-    end
+    else
       #binding.pry
       erb :error
+    end
   end
 
   get '/logout' do
