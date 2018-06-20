@@ -21,7 +21,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-
+   if User.is_logged_in?(session)
+     User.current_user
+   else 
+     redirect '/'
+    end
   end
 
   get '/logout' do
