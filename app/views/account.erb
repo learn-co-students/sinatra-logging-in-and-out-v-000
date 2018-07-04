@@ -3,10 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    
+    #if @logged_in true and @current_user puts user and balance
+    <%if @logged_in%>
+      <%=@current_user.username%>
+      <%=@current_user.balance%>
+    <%else%>
+        <a href="/">Home Page</a>
+    <%=end%>
+
+    <form action='/logout' method='get'>
+      <button type='submit' id='submit'>Logout</button>
+    </form>
 
   </body>
 </html>
