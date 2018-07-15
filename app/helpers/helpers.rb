@@ -1,13 +1,12 @@
 class Helpers
 
   def self.current_user(arg)
-    @user = User.find(arg[:id])
-
+    @user = User.find_by(id: arg[:user_id])
+    @user
   end
 
   def self.is_logged_in?(arg)
-    @user = User.find(arg[:id])
-    !!@user
+    !!arg[:user_id]
   end
   
 end
