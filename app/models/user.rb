@@ -1,5 +1,5 @@
 
 
-class User < ActiveRecord::Migration[5.1]
+class User < ActiveRecord::Base
 
-end 
+end
