@@ -1,11 +1,11 @@
-class Helpers < ActiveRecord::Base
+class Helpers
 
-  def self.current_user
-    @user = User.create(username: params["name"], password: params["password"], balance: params["balance"])
-    @user.id = session[:user_id]
+  def self.current_user(session_hash)
+   User.find_by(session_hash["user_id"])
+
+    end
+
+  def self.is_logged_in?(session_hash)
+    !session_hash["user_id"]
   end
-
-  def self.is_logged_in?
-  end
-
 end
