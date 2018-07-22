@@ -30,3 +30,8 @@ class ApplicationController < Sinatra::Base
  end
 
   end
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 7642f6a3112dad0dd31f0a26bece3f3619d2e81b
