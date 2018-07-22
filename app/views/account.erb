@@ -5,9 +5,8 @@
     <title>title</title>
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
-  <body id="page-top">
-    
-
-
+  <body method="POST" action="/account" id="page-top">
+    <h1>Welcome <%=@user.username%></h1>
+    <p>Your balance is <%=@user.balance%></p>
   </body>
 </html>
