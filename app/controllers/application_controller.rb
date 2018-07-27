@@ -3,6 +3,7 @@ class ApplicationController < Sinatra::Base
   configure do
     set :views, Proc.new { File.join(root, "../views/") }
     enable :sessions unless test?
+    disable :show_exceptions
     set :session_secret, "secret"
   end
 
