@@ -7,9 +7,11 @@
   </head>
   <body id="page-top">
     <% if Helpers.is_logged_in? %>
-      <h2><%= Helpers.current_user %></h2>
+    binding.pry #doesn't hit
+      <h2>Welcome <%= Helpers.current_user %> </h2>
     <% else %>
       <a href="/">Home Page</a>
     <a href="/logout">Log Out</a>
+    <% end %>
   </body>
 </html>
