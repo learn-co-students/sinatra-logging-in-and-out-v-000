@@ -15,8 +15,10 @@ class ApplicationController < Sinatra::Base
     if @user != nil && @user.password == params[:password]
       session[:user_id] = @user.id 
       redirect to '/account'
+    else
+      erb :'/error'
     end
-    
+
   end
 
   get '/account' do
