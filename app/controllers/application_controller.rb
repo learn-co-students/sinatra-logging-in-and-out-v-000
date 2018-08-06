@@ -25,7 +25,7 @@ class ApplicationController < Sinatra::Base
       erb :account
     else
       erb :error
-    end 
+    end
   end
 
   get '/logout' do
@@ -35,6 +35,16 @@ class ApplicationController < Sinatra::Base
 
   get '/error' do
     erb :error
+  end
+
+  get '/create' do
+    erb :create
+  end
+
+  post '/create' do
+    @user = User.create(username: params[:username], password: params[:password])
+    @user.save
+    
   end
 
 end
