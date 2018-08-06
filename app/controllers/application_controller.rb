@@ -42,9 +42,10 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/create' do
-    @user = User.create(username: params[:username], password: params[:password])
+    @user = User.create(username: params[:username], password: params[:password], balance: params[:balance])
     @user.save
-    
+    session[:user_id] = @user.id
+    redirect '/account'
   end
 
 end
