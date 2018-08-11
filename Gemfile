@@ -1,14 +1,15 @@
 source 'http://rubygems.org'
 
-gem 'sinatra', '~> 2.0', '>= 2.0.1'
-gem 'activerecord', '~> 5.1', '>= 5.1.5'
-gem 'sinatra-activerecord', '~> 2.0', '>= 2.0.13'
+gem 'sinatra'
+gem "activerecord", '<= 5.1' #required for this lab
+gem 'sinatra-activerecord'
 gem 'rake'
 gem 'require_all'
 gem 'sqlite3'
 gem 'thin'
 gem 'shotgun'
 gem 'pry'
+gem 'tux'
 
 group :test do
   gem 'rspec'
