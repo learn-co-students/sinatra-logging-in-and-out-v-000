@@ -21,13 +21,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-
+    @this_user = Helpers.current_user(session)
+    erb :account
   end
 
   get '/logout' do
     session.clear
     redirect '/'
   end
-
 
 end
