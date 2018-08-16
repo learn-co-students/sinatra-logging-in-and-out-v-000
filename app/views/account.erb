@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,7 +7,16 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-    
-
+  <% if Helpers.is_logged_in?(session)%>
+    <% @user = Helpers.current_user(session) %>
+    <% @user.balance = @user.balance.to_f %>
+    <h1>Welcome <%=@user.username%></h1>
+    <h3>Your Balance: <%=@user.balance%></h3>
+    <form action="/logout" method="post">  
+      <button type="submit">Log Out</button>
+    </form>
+  <% else %>
+    <h1>You Must <a href="/">Log In</a> to View Your Balance</h1>
+  <% end %>
   </body>
 </html>
