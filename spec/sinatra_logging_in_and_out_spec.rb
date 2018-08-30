@@ -2,12 +2,12 @@ require 'spec_helper'
 
 describe 'ApplicationController' do
   describe "GET '/'" do
-    xit "returns a 200 status code" do
+    it "returns a 200 status code" do
       get '/'
       expect(last_response.status).to eq(200)
     end
 
-    xit "contains a form for a user to log in" do
+    it "contains a form for a user to log in" do
       get '/'
       expect(last_response.body).to include("<input")
     end
@@ -20,7 +20,7 @@ describe 'ApplicationController' do
       @user3 = User.create(:username => "kittens1265", :password => "crazycatlady", :balance => 10000)
     end
 
-    xit "returns a 302 redirect status code" do
+    it "returns a 302 redirect status code" do
       params = {
         "username"=> "skittles123", "password" => "iluvskittles"
       }
@@ -28,7 +28,7 @@ describe 'ApplicationController' do
       expect(last_response.status).to eq(302)
     end
 
-    xit "sets session[:user_id] equal to id of the user" do
+    it "sets session[:user_id] equal to id of the user" do
       post '/login', {
         "username"=> "flatiron4lyfe", "password" => "Rubie!"
       }
@@ -36,7 +36,7 @@ describe 'ApplicationController' do
       expect(session[:user_id]).to eq(2)
     end
 
-    xit "displays the correct username based on session[:user_id]" do
+    it "displays the correct username based on session[:user_id]" do
       post '/login', {
         "username"=> "kittens1265", "password" => "crazycatlady"
       }
@@ -44,7 +44,7 @@ describe 'ApplicationController' do
       expect(last_response.body).to include('Welcome kittens1265')
     end
 
-    xit "displays the correct balance based on session[:user_id]" do
+    it "displays the correct balance based on session[:user_id]" do
       post '/login', {
         "username"=> "kittens1265", "password" => "crazycatlady"
       }
@@ -52,7 +52,7 @@ describe 'ApplicationController' do
       expect(last_response.body).to include('10000')
     end
 
-    xit "displays a 'Log Out' link" do
+    it "displays a 'Log Out' link" do
       post '/login', {
         "username"=> "kittens1265", "password" => "crazycatlady"
       }
@@ -61,7 +61,7 @@ describe 'ApplicationController' do
     end
 
 
-    xit "shows the error page if username and ID do not match available users" do
+    it "shows the error page if username and ID do not match available users" do
       post '/login', {
         "username"=> "joe", "password" => "nopassword"
       }
