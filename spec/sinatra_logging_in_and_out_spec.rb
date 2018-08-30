@@ -70,12 +70,12 @@ describe 'ApplicationController' do
   end
 
   describe "GET '/account'" do
-    xit "shows the error page if user goes directly to /account" do
+    it "shows the error page if user goes directly to /account" do
       get '/account'
       expect(last_response.body).to include('You Must <a href="/">Log In</a> to View Your Balance')
     end
 
-    xit 'displays the account information if a user is logged in' do
+    it 'displays the account information if a user is logged in' do
       user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
       params = {
         "username"=> "skittles123", "password" => "iluvskittles"
@@ -88,7 +88,7 @@ describe 'ApplicationController' do
   end
 
   describe "GET '/logout'" do
-    xit "clears the session" do
+    it "clears the session" do
       user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
       params = {
         "username"=> "skittles123", "password" => "iluvskittles"
@@ -98,7 +98,7 @@ describe 'ApplicationController' do
       expect(session[:user_id]).to be(nil)
     end
 
-    xit 'redirects to \'/\'' do
+    it 'redirects to \'/\'' do
       get '/logout'
       follow_redirect!
       expect(last_request.path_info).to eq('/')
