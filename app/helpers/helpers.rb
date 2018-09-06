@@ -1,10 +1,11 @@
+require 'pry'
 class Helpers
-  def current_user(params)
-    @user = User.find_by(user_id: params["user_id"])
+  def self.current_user(params)
+    @user = User.find_by(id: params[:user_id])
   end
 
-  def is_logged_in?
-
+  def self.is_logged_in?(params)
+    !!params[:user_id]
   end
 
 end
