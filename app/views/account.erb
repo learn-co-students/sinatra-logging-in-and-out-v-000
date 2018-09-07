@@ -6,10 +6,17 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    "Username: <%=@user.username%>"
-    "Balance: <%=@user.balance%>"
+    <% if @user.is_logged_in(params) %>
+      <div class="one">
+        "Username: <%=@user.username%>"
+        "Balance: <%=@user.balance%>"
 
-    <a href="/logout">Log Out</a>
-
+        <a href="/logout">Log Out</a>
+      </div>
+    <% else %>
+      <div class="two">
+        <a href="/">Home Page</a>
+      </div>
+    <% end %>
   </body>
 </html>
