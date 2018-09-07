@@ -65,6 +65,7 @@ describe 'ApplicationController' do
       post '/login', {
         "username"=> "joe", "password" => "nopassword"
       }
+      follow_redirect!
       expect(last_response.body).to include('You Must <a href="/">Log In</a> to View Your Balance')
     end
   end
@@ -97,7 +98,7 @@ describe 'ApplicationController' do
       get '/logout'
       expect(session[:user_id]).to be(nil)
     end
-    
+
     it 'redirects to \'/\'' do
       get '/logout'
       follow_redirect!
