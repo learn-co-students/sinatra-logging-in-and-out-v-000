@@ -1,2 +1,2 @@
-class User < Sinatra::Base
+class User < ActiveRecord::Base
 end
