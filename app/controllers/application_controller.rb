@@ -11,17 +11,29 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-
+    if !!@user = User.find_by(username: params["username"])
+      #saved as user_id here so need to call like that
+      #but need to do find_by(id: session[:user_id]) b/c sql creates id
+      session[:user_id] = @user.id
+      redirect to '/account'
+    else
+      erb :error
+    end
   end
 
   get '/account' do
-
+    if !session[:user_id]
+      erb :error
+    else
+      @user = Helpers.current_user(session)
+      erb :account
+    end
   end
 
   get '/logout' do
-
+    session.clear
+    redirect '/'
   end
 
 
 end
-
