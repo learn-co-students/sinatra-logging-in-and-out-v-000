@@ -2,11 +2,15 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <title>Account</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    
-
+    <h1>Wellcome to your account Homepage!</h1>
+    <ul>
+      <li>User Name: <%= Helpers.current_user(session).username %></li>
+      <li>Balance: <%= Helpers.current_user(session).balance %></li>
+    </ul>
+    <a href="/logout">Log Out</a>
   </body>
 </html>
