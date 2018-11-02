@@ -22,7 +22,12 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    erb :account
+    #binding.pry
+    #if @user
+      erb :account
+    #else
+      #erb :error
+    #end
 
   end
 
