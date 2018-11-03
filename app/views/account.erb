@@ -6,16 +6,16 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-<%if !!Helpers.is_logged_in?(session)%>
-    <%#binding.pry%>
-    <h1>Welcome<%=@user.username %> </h1>
+<%if !!Helpers.is_logged_in?(session) %>
+    <%#@user = Helpers.current_user(session)%>
+    <h1>Welcome<%=Helpers.current_user(session).username %> </h1>
       <%#binding.pry%>
-    <h3>Your balance:<%=@user.balance %> </h3>
-<%else %>
-    <a href="/">home page</a>
-<%end %>
+    <h3>Your balance:<%=Helpers.current_user(session).username.balance %> </h3>
 
     <a href="/logout">Log Out</a>
+<%end %>
+
+
 
   </body>
 </html>
