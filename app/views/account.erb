@@ -6,7 +6,12 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-    <a href="/logout">Log Out</a>
-
+    <% if Helpers.is_logged_in?(session_hash) %>
+       <h1>Welcome To Your FlatBank Homepage<%= Helpers.current_user(session_hash).username %></h1>
+      <h3>Your Current Balance: <%= Helpers.current_user(session_hash).balance %></h3>
+      <a href="/logout">Log Out</a>
+    <% else %>
+      <a href = "/">Home</a>
+    <% end %>
   </body>
 </html>
