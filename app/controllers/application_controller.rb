@@ -1,3 +1,4 @@
+require "pry"
 require_relative '../../config/environment'
 class ApplicationController < Sinatra::Base
   configure do
@@ -11,22 +12,27 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    @user = User.find_by(username: params["username"], password: params["password"])
+    @user = User.find_by(username: params["username"])
     if @user == nil
-      redirect '/error'
+      erb :error
     else
-      session[:id] = @user.id
+      session[:user_id] = @user.id
       redirect to '/account'
     end
   end
 
   get '/account' do
-
+    if Helpers.is_logged_in?(session)
+      @user = User.find_by(id: session[:user_id])
+    erb :account
+  else
+    erb :error
+  end
   end
 
   get '/logout' do
     
-    erb :account
+    redirects to '/index'
   end
 
 
