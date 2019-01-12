@@ -11,7 +11,7 @@
     <p>IM A TEST</p>
     <% if Helpers.is_logged_in?(session)%>
       <h1>Welcome <%= Helpers.current_user(session).username %></h1>
-      <h2>Your Balance is <%= Helpers.current_user(session).balance %></h2>
+      <h3>Your Balance: <%= Helpers.current_user(session).balance %></h3>
     <% else %>
       <a href= "/"> Home </a>
     <%end %>
