@@ -11,15 +11,31 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
+    @user = User.find_by(username: params["username"])
 
+    if @user && @user.password == params["password"]
+      # Authenticate password correctness
+      session[:user_id] = @user.id
+
+      redirect to '/account'
+      # Redirect automatically stops the rest from executing
+    end
+    erb :error
   end
 
   get '/account' do
-
+    if session[:user_id]
+      erb :account
+    else
+      erb :error
+    end
+    # Need if else statement when dealing with two erb files
   end
 
   get '/logout' do
+    session.clear
 
+    redirect to '/'
   end
 
 
