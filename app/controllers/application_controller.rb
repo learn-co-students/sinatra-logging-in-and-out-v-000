@@ -11,15 +11,22 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-
+    if @user = User.new(username: params["username"], password: params["password"])
+      @user.save
+      session[:id] = @user.id
+      redirect '/account'
+    else
+      erb :error
+    end
   end
 
   get '/account' do
-
+    erb :account
   end
 
   get '/logout' do
-
+    session.clear
+    redirect '/'
   end
 
 
