@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-
-    <a href="/logout">Click here to log out</a>
+    <h1>Welcome <%= @user.username%></h1>
+    <h3>Your Balance: <%= @user.balance%></h3>
+    <a href="/logout">Click here to Log Out</a>
   </body>
 </html>
