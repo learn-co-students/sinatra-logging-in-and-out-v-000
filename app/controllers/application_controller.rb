@@ -25,8 +25,9 @@ class ApplicationController < Sinatra::Base
      if !session[:user_id]
       erb :error
     else
-
+      # Helpers.current_user(session)
       @user = User.find_by(id: session[:user_id])
+
        erb :account
      end
   end
