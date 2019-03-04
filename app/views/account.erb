@@ -6,8 +6,7 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-    <h1>Welcome back to FlatBank!</h1>
-      <h4>Username: <<%=@user.username%></h4>
+    <h4>Welcome <%=@user.username%></h4>
       <h5>Balance: <%=@user.balance%></h5>
     <a href="/sessions/logout">Log Out</a>
   </body>
