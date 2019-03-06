@@ -11,15 +11,22 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-
+    if user = User.find_by(username: params[:username], password: params[:password])
+      session[:user_id] = user.id
+      redirect("/account")
+    else
+      puts "Couldn't find this fewl"
+      erb :error
+    end
   end
 
   get '/account' do
-
+    Helpers.is_logged_in?(session) ? erb(:account) : erb(:error)
   end
 
   get '/logout' do
-
+    session.clear
+    redirect("/")
   end
 
 
