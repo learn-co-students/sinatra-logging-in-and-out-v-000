@@ -1,6 +1,9 @@
+require 'sinatra/base'
+
+
 class Helpers
 
-  def current_user(session)
+  def self.current_user(session)
     @user = User.find_by_id(session[:user_id])
   end #ends method
 
@@ -10,12 +13,8 @@ class Helpers
 #the user in the database and return that user.
 
 
-  def is_logged_in
-    if @user = User.find_by_id(session[:user_id])
-      true 
-    else 
-      false 
-    end #ends if     
+  def self.is_logged_in?(session)
+    !!session[:user_id]  
   end 
 
 #This method should return true if the user_id is in the session hash and false
