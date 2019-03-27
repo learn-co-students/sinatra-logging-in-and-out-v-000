@@ -1,3 +1,5 @@
+require_relative '../../config/environment'
+
 class ApplicationController < Sinatra::Base
   register Sinatra::ActiveRecordExtension
   configure do
@@ -38,4 +40,4 @@ end
 
 
 
-  @user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
+  
