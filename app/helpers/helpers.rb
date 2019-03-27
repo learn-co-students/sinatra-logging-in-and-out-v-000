@@ -1,15 +1,11 @@
 class Helpers
 #These 2 methods will be called in account.erb
-  def current_user([session: user_id])
-  session :params[@user_id]
-  @user_id.find_by([@user_id])
-    @user_id
-
+  def self.current_user(session)
+    @user = User.find_by_id(session[:user_id])
+    # @user_id
   end
 
-
-
-  def is_logged_in?
+  def self.is_logged_in?
 
 
 
