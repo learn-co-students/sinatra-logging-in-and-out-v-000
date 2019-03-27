@@ -3,11 +3,40 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
     <h1>Welcome to FlatBank</h1>
     <h3>Log In Please</h3>
+
+<label form action='/login' method="post">
+  <input type="text" name="login" id= ??
+   <!-- Accepts username and password -->
+
+***
+<% @articles.each do |article| %>
+  <a href="/articles/<%=article.id%>">
+  <%=article.title%>"
+<% end %>
+------
+<form action='/articles' method='post'>
+
+  <label for="title">Title</label>
+    <input type="text" id="title" name="title"/>
+
+  <label for="content">Content</label>
+    <input type="text" id="content" name="content"/>
+
+
+
+
+----
+*******
+
+
+
+
+
 
   </body>
 </html>
