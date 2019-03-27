@@ -13,10 +13,9 @@ class ApplicationController < Sinatra::Base
 
   post '/login' do
     @user = User.find_by(:username => params[:username])
-    # @user = User.findy_by(name: params["username"])
-    if @user != nil && @user.password == params[:password]
+      if @user != nil && @user.password == params[:password]
 
-      session[:user_id] = @user.id
+      session[:user_id] = @user_id
       redirect to '/account'
     end
     erb :error
@@ -36,3 +35,7 @@ class ApplicationController < Sinatra::Base
     redirect to '/'
   end
 end
+
+
+
+  @user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
