@@ -17,7 +17,7 @@ class ApplicationController < Sinatra::Base
     @user = User.find_by(:username => params[:username])
       if @user != nil && @user.password == params[:password]
 
-      session[:user_id] = @user_id
+      session[:user_id] = @user.id
       redirect to '/account'
     end
     erb :error
@@ -37,7 +37,3 @@ class ApplicationController < Sinatra::Base
     redirect to '/'
   end
 end
-
-
-
-  
