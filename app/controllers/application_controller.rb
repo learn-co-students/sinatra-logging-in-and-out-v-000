@@ -11,17 +11,25 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
+        @user = User.find_by(username: params["username"])  #otra forma @user = User.find_by(:username => params[:username])
+        if @user
+          session[:user_id] = @user.id  #guarda el usuario en el hash y queda para todas las pantallas.
 
+          redirect to '/account'
+        else
+          erb :error
+        end
   end
 
   get '/account' do
-
+       erb :account
   end
 
   get '/logout' do
+    session.clear
+    redirect to '/'
 
   end
 
 
 end
-
