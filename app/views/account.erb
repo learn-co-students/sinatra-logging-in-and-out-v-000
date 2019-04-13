@@ -2,11 +2,15 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>title</title>
+    <title>User</title>
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-    
-
+  	<h1>Account Info:</h1>
+  	<h1>Welcome <%= @user.username %></h1>
+  	<h3>Your Balance: <%= @user.balance %></h3>
+  	<form action="/logout" method="post">
+  		<input type="submit" value="Log Out" name="Log Out">
+  	</form>
   </body>
 </html>
