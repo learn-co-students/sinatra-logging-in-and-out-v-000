@@ -9,7 +9,7 @@
       <% if Helpers.is_logged_in?(session)%>
                <h1>Welcome <%= Helpers.current_user(session).username %></h1>
                <h3>Your Balance: <%= Helpers.current_user(session).balance %></h3>
-               <!-- <a href="/logout">Log Out</a> to View Your Balance'</p> -->
+              <a href="/logout">Log Out</a> to View Your Balance'</p> 
                <!-- <form action='logout' method="get">
                 <input type="submit" name="submit" value="Log Out">
               </form> -->
