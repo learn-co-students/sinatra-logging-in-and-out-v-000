@@ -8,6 +8,16 @@
   <body id="page-top">
     <h1>Welcome to FlatBank</h1>
     <h3>Log In Please</h3>
+    <form action="/login" method="POST">
+      <p><label for="username" name="username">Username:</label>
+      <input type="text" name="username" id="username">
+      </p>
 
+      <p><label for="password" name="password">Password:</label>
+      <input type="text" name="password" id="password">
+      </p>
+
+      <input type="submit" id="submit" value="Log In">
+    </form>
   </body>
 </html>
