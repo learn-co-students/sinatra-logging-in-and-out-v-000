@@ -20,15 +20,12 @@ class ApplicationController < Sinatra::Base
      erb :error
   end
 
-
   get '/account' do
-    if session[:user_id] = @user.id
-      binding.pry
-    erb :account
-  #  <!-- if # session[:user_id] exists
-     # show account page
-  #  else
-     # show error -->
+    if session[:user_id] != nil
+      erb :account
+    else
+      erb :error
+    end
   end
 
   get '/logout' do
