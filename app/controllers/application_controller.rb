@@ -22,7 +22,13 @@ class ApplicationController < Sinatra::Base
 
 
   get '/account' do
+    session[:user_id] = @user.id
 
+   erb :account
+  #  <!-- if # session[:user_id] exists
+     # show account page
+  #  else
+     # show error -->
   end
 
   get '/logout' do
