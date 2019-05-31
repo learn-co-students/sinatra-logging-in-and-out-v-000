@@ -5,9 +5,11 @@ require 'rack/test'
 require 'capybara/rspec'
 require 'capybara/dsl'
 
-if ActiveRecord::Base.connection.migration_context.needs_migration?
-  raise 'Migrations are pending. Run `rake db:migrate SINATRA_ENV=test` to resolve the issue.'
-end
+# if ActiveRecord::Base.connection.migration_context.needs_migration?
+#   raise 'Migrations are pending. Run `rake db:migrate SINATRA_ENV=test` to resolve the issue.'
+# end
+
+#causing errors (no tests run either) when present here and in config.ru (undefined method/NoMethodError for migration_context and needs_migration?)
 
 ActiveRecord::Base.logger = nil
 
