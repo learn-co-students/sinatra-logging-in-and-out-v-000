@@ -15,12 +15,13 @@ class ApplicationController < Sinatra::Base
     session[:user_id] = @user.id
     if session[:user_id] == @user.id
       redirect '/account'
+    else
+      erb :error
     end
-    erb :error
   end
 
   get '/account' do
-    @user = self.current_user(session)
+    erb :account
   end
 
   get '/logout' do
