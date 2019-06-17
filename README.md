@@ -1,4 +1,4 @@
-# Sinatra Sessions Lab - User Logins
+I have # Sinatra Sessions Lab - User Logins
 
 ## Introduction
 
