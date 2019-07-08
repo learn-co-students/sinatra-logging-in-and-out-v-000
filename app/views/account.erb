@@ -6,6 +6,17 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
+    <a href="/logout">Log Out</a>
+
+    <% if Helpers.is_logged_in?(session) %>
+      <% user = Helpers.current_user(session) %>
+      <h1>Welcome <%= user.username %></h1>
+      <h3>Your Balance: <%= user.balance %></h3>
+      <h5><%= "Dang son, you got da moneys" if user.balance > 800%></h5>
+      <h5><%= "HAHAHA you are so broke!" if user.balance < 20 %></h5>
+    <% else %>
+      <a href="/">Home</a>
+    <% end %>
     
 
   </body>
