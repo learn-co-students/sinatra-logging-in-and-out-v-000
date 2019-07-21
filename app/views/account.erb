@@ -7,7 +7,7 @@
   </head>
   <body id="page-top">
     <% user = Helpers.current_user(@session) %>
-    <% binding.pry %>
+    
     <h1>Welcome <%= user.username %></h1>
     <h3>Here is your balance: <%= "$#{user.balance.round(2)}" %></h3>
     
