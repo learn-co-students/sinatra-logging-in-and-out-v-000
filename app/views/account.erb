@@ -6,11 +6,16 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-    <% user = Helpers.current_user(@session) %>
-    
-    <h1>Welcome <%= user.username %></h1>
-    <h3>Here is your balance: <%= "$#{user.balance.round(2)}" %></h3>
-    
-    <a href="/logout"><button>Log Out</button></a>
+    <% if Helpers.is_logged_in?(@session) %>
+      <% user = Helpers.current_user(@session) %>
+      
+      <h1>Welcome <%= user.username %></h1>
+      <h3>Here is your balance: <%= "$#{user.balance.round(2)}" %></h3>
+      
+      <a href="/logout"><button>Log Out</button></a>
+    <% else %>
+      <% erb :error %>
+      <%# Well, THAT ^ didn't work! %>
+    <% end %>
   </body>
 </html>
