@@ -13,10 +13,6 @@
       <h3>Your Balance: <%= "#{user.balance.round(2)}" %></h3>
       
       <a href="/logout"><button>Log Out</button></a>
-    <% else %>
-    <%# binding.pry %>
-      <% erb :error %>
-      <%# Well, THAT ^ didn't work! %>
     <% end %>
   </body>
 </html>
