@@ -28,6 +28,18 @@ class ApplicationController < Sinatra::Base
       erb :error
     end
     
+    # The code below, along with some of the commented code in the account.erb file, works.
+    # However, for reasons mentioned in account.erb, I don't need to put the session hash into an instance variable. 
+    # Also, it's better to put as much logic as possible into Controllers and helpers; only #Helpers.current_user needs to be called in account.erb . 
+    
+      # if Helpers.is_logged_in?(session)
+      # #binding.pry
+      #   @session = session
+      #   erb :account
+      # else
+      #   erb :error
+      # end
+
     #-----------Experimental code--------------------
     
     # These two sets of code work EXACTLY the same way:
@@ -77,6 +89,8 @@ class ApplicationController < Sinatra::Base
     #end
     #binding.pry
     #erb :error
+    
+    # Note that here ^^^, if the user is logged in, ALL of those binding.pry statements (as well as those inside of the account.erb file) get called.
     
     #if Helpers.is_logged_in?(session)
     #binding.pry
