@@ -369,21 +369,26 @@ Steven:male_mage::skin-tone-2: 6:18 PM
 No worries. I tried that just now. But for some reason, that "return" statement causes the account page to show up blank.
 Razor 6:19 PM
 If   if Helpers.is_logged_in?(session) returns true, it should display account, and then leave the get method.
-Steven:male_mage::skin-tone-2: 6:22 PM
+
+Steven:
 Here's another Slack tip, by the way: if you want to write multiple lines in one message (code, lists, etc.). then use Shift-Enter at the end of each line.
 Also, I just executed this code:
+
 if Helpers.is_logged_in?(session)
       @user = Helpers.current_user(session)
       erb :account
       return
       erb :error
     end
-Razor 6:23 PM
+    
+Razor
 Ok, thanks.
 No, not like that.
-Steven:male_mage::skin-tone-2: 6:24 PM
+
+Steven:
 You're welcome :grin:. And what code was I supposed to run?
-Razor 6:24 PM
+
+Razor
 ```
 get ‘/account’ do
    if Helpers.is_logged_in?(session)
@@ -401,20 +406,24 @@ get '/account' do
     end
       erb :error
 end
-Steven:male_mage::skin-tone-2: 6:24 PM
+
+Steven:
 Ah, OK. One second.
-Razor 6:25 PM
+
+Razor
 That shouldn’t  take you to the error page ever.
-Steven:male_mage::skin-tone-2: 6:27 PM
+
+Steven:
 Yeah, I see now that I don't get to the error page. But there's another problem: although I am now on the /account page, it's completely blank.
-Razor 6:28 PM
+
+Razor
 put a pry between erb :account and return and see what happens.
 It’s executing fast.
-Steven:male_mage::skin-tone-2: 6:30 PM
-Hmm. I never saw the /account page get rendered. Right now, my program is paused by the binding.pry statement, but my login page is still showing up. (edited) 
+
+Steven:
+Hmm. I never saw the /account page get rendered. Right now, my program is paused by the binding.pry statement, but my login page is still showing up.
 image.png 
 image.png
-
 
 Razor
 Huh?
