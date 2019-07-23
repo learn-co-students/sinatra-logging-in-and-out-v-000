@@ -73,6 +73,9 @@ class ApplicationController < Sinatra::Base
     # end
     # erb :error
     
+    # I got #erb mixed up with #redirect, in terms of which one exits a route and which one goes back to the rest of the route. See my NOTES.md file for more. 
+    # I don't need to put the #redirect call inside of an "else" statement, but I DO need to put the #erb call inside of #else.
+    
     # Also, although #return exits out of the route (I think) and doesn't execute "erb :error", it stays on the account.erb page without rendering anything. Without the #return, the route goes onto the next line of code after the "if" statement: "erb :error".
     
     #-------------Previous code that doesn't completely work----------
@@ -107,14 +110,12 @@ class ApplicationController < Sinatra::Base
     redirect "/"
   end
   
-  get '/user-logged-in' do
-    "The user is logged in!"
-  end
-  
-  get '/user-not-logged-in' do
-    "The user is NOT logged in."
-  end
-
+  # get '/user-logged-in' do
+  #   "The user is logged in!"
+  # end
+  # 
+  # get '/user-not-logged-in' do
+  #   "The user is NOT logged in."
+  # end
 
 end
-
