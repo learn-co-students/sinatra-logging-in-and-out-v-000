@@ -12,6 +12,8 @@ class ApplicationController < Sinatra::Base
 
   post '/login' do
     user = User.find_by(username: params[:username], password: params[:password])
+    # The danger here is that multiple users could have the same username, now. Check out the solution for something a little more secure.
+    
     if user
       session[:user_id] = user.id
       redirect to '/account'
@@ -27,6 +29,8 @@ class ApplicationController < Sinatra::Base
     else
       erb :error
     end
+    
+    # Now that I think about it, the code above ^^^^^ doesn't make as much sense as the solution, which instead calls User.find_by_id(session[:user_id]), then checks to see whether that User is nil.
     
     # The code below, along with some of the commented code in the account.erb file, works.
     # However, for reasons mentioned in account.erb, I don't need to put the session hash into an instance variable. 
