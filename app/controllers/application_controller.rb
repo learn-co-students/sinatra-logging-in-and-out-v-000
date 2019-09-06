@@ -1,4 +1,5 @@
 require_relative '../../config/environment'
+
 class ApplicationController < Sinatra::Base
   configure do
     set :views, Proc.new { File.join(root, "../views/") }
@@ -11,9 +12,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-    @user = Users.find_by(username: params[:username], password: params[:password], balance: params[:balance])
-    binding.pry
-    if @user
+    @user = User.find_by(username: params[:username])
+    #binding.pry
+    if @user != nil && @user.password == params[:password]
       session[:user_id] = @user.id
       redirect to '/account'
     end
@@ -21,16 +22,18 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    if !Helpers.is_logged_in?(sessions)
+    @current_user = User.find_by_id(session[:user_id])
+    if @current_user
+      erb :account
+    else
       erb :error
     end
-    Helpers.current_user(session)
   end
+
 
   get '/logout' do
     session.clear
-    redirct to '/'
+    redirect to '/'
   end
-
 
 end
