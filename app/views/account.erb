@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
-  </head>
-  <body id="page-top">
-    
-
-  </body>
-</html>
+    <% if Helpers.is_logged_in?(session) == true %>
+      <h1>Welcome <%= Helpers.current_user(session).username%></h1>
+      <br>
+        <h3>Your Balance: <%= Helpers.current_user(session).balance %></h3>
+      <br>
+      <br>
+      <br>
+      <a href="/logout" id = "Log Out">Log Out</a>
+    <% else %>
+      <a href="/"> Homepage </a>
+    <% end %>
