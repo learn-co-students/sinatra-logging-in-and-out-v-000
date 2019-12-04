@@ -85,3 +85,4 @@ methods that make it cleaner to add logic to our views.
   `current_user` to display the username and balance.
 
 <p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-logging-in-and-out' title='Sinatra Sessions Lab - User Logins'>Sinatra Sessions Lab - User Logins</a> on Learn.co and start learning to code for free.</p>
+
