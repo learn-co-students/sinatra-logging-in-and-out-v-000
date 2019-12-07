@@ -1,5 +1,5 @@
 # Sinatra Sessions Lab - User Logins
-<!-- Hello -->
+
 ## Introduction
 
 You've been contracted by Flatiron Bank to consult on their online banking
