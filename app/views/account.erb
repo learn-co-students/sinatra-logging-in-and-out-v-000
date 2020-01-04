@@ -7,6 +7,12 @@
   </head>
   <body id="page-top">
     
+    <% if !!is_logged_in?%>
+    <%=current_user.username%>
+    <%=current_user.balance%>
+    <%else%>
+    <a href="/">Back to Homepage</a>
+    <%end%>
   <a href="/logout">Log Out</a>
     
   </body>
