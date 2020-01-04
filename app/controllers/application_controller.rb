@@ -1,3 +1,4 @@
+require_relative "../helpers/helpers.rb"
 require_relative '../../config/environment'
 class ApplicationController < Sinatra::Base
   configure do
@@ -21,21 +22,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    if self.is_logged_in?(session)
-      @user = self.current_user(session)
+    if !!Helpers.current_user(session)
       erb :account
-    else 
-      erb :error
+    else
+      redirect to("/error")
     end
   end
       
-    
-    #if !!self.current_user(session)
-      #erb :account
-    #else
-      #erb :error
-    #end
-
   get '/logout' do
     session.clear
     redirect '/'
