@@ -8,13 +8,20 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     erb :index
-  end
+  end 
+  
+  
 
   post '/login' do
     @user = find_by_(username: params[:username], password: params[:password])
     if @user
-
+      login[:user_id] = @user_id
+      redirect '/account'
+    end 
+   redirect '/error'
   end
+
+
 
   get '/account' do
 
