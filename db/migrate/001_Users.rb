@@ -1,9 +1,9 @@
-class CreateUsers < ActiveRecord::Migration[4.2]
+class Users < ActiveRecord::Migration
   def change 
    create_table :users do |t|
     t.string :username
     t.string :password
-    t.float  :balance 
+    t.decimal :balance 
   
   
   end 
