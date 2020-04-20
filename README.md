@@ -17,7 +17,7 @@ HTTP requests and connect to our models, and our views either take in or
 display data to our users.
 
 This means that we want to minimize the amount of logic our views contain. Our
-views should never directly pull from the database (ie. `User.all`, etc). All
+views should never directly pull from the database (eg. `User.all`). All
 of that should be taken care of in the controller actions, and the data should
 be passed to the view via a specific controller action.
 
