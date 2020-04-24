@@ -11,7 +11,17 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-
+    # binding.pry
+    @user = User.find_by(:username => params[:username]) #not sure how to read this, where is the data coming from?
+    session[:user_id] = @user.id
+      # if
+      # # @user.username == session[:username]
+      #   session[:user_id] = @user.id
+      # else
+      # #incorrect password
+      # redirect to '/login'
+      # end
+redirect to '/login'
   end
 
   get '/account' do
@@ -19,9 +29,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/logout' do
-
+    redirect to '/'
   end
 
-
 end
-
