@@ -83,5 +83,3 @@ methods that make it cleaner to add logic to our views.
   only display the username and account balance if the user is logged in.
   Otherwise, it should contain a link to the home page. You'll also want to use
   `current_user` to display the username and balance.
-
-<p data-visibility='hidden'>View <a href='https://learn.co/lessons/sinatra-logging-in-and-out' title='Sinatra Sessions Lab - User Logins'>Sinatra Sessions Lab - User Logins</a> on Learn.co and start learning to code for free.</p>
