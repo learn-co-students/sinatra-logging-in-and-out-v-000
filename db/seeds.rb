@@ -1,5 +1,2 @@
-user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
-
-user2 = User.create(:username => "flatiron4lyfe", :password => "Rubie!", :balance => 500)
-
-user3 = User.create(:username => "kittens1265", :password => "crazycatlady", :balance => 10000)
+User.create(username: 'el_era', password: '0000', balance: 500)
+User.create(username: 'pab44', password: '1111', balance: 700)
