@@ -3,10 +3,17 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    
+    <h1>Your account details</h1>
+    <h2>Session <%= session[:user_id] %></h2>
+    <h2>Current User: <%= Helpers.current_user(session).username %></h2>
+    <h3><% if Helpers.is_logged_in?(session) %></h3>
+      <h1>Welcome <%= Helpers.current_user(session).username %></h1>
+      <h3>Your Balance: <%= Helpers.current_user(session).balance %></h3>
+        <% end %>
+      <h1><a href="/logout">Log Out</a></h1>
 
   </body>
 </html>

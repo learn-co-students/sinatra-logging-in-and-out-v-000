@@ -3,11 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
     <h1>Welcome to FlatBank</h1>
     <h3>Log In Please</h3>
-
+    <h1>Session Hash Keys: <%= session.keys %></h1>
+    <form method="POST" action="/login">
+    <label for="username">User Name:</label>
+    <input type="text" name="username"><br>
+    <label for="password">Password:</label>
+    <input type="text" name="password"><br>
+    <button>Log In</button>
+    </form>
   </body>
 </html>
