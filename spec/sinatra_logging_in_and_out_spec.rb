@@ -52,6 +52,7 @@ describe 'ApplicationController' do
       expect(last_response.body).to include('10000')
     end
 
+
     it "displays a 'Log Out' link" do
       post '/login', {
         "username"=> "kittens1265", "password" => "crazycatlady"
@@ -59,7 +60,6 @@ describe 'ApplicationController' do
       follow_redirect!
       expect(last_response.body).to include('Log Out')
     end
-
 
     it "shows the error page if username and ID do not match available users" do
       post '/login', {
