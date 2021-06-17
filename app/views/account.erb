@@ -9,7 +9,8 @@
     <% if @user.self.is_logged_in? %>
          "Welcome, <%= @user.username %>"
          "Account Balance: <%= @user.balance %>"
+         
         <% else %>
-        <a href="/"></a> 
+        <a href="/error"></a>
   </body>
 </html>
