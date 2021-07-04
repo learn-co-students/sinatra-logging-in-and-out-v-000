@@ -50,7 +50,7 @@ GEM
     racc (1.5.2)
     rack (1.6.13)
     rack-protection (1.5.5)
-      rack
+     rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rake (12.3.3)
