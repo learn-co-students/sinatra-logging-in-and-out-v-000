@@ -7,6 +7,9 @@
   </head>
   <body id="page-top">
     
-
+        "Welcome, <%= Helpers.current_user(session) %>"
+        "Account Balance: <%= @user.balance %>"
+        <a href="/logout">Log Out</a>
+        <a href="/error"></a>
   </body>
 </html>
