@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'ApplicationController' do
+puts describe 'ApplicationController' do
   describe "GET '/'" do
     it "returns a 200 status code" do
       get '/'
@@ -13,7 +13,7 @@ describe 'ApplicationController' do
     end
   end
 
-  describe "POST '/login'" do
+  puts describe "POST '/login'" do
     before do
       @user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
       @user2 = User.create(:username => "flatiron4lyfe", :password => "Rubie!", :balance => 500)
@@ -97,7 +97,7 @@ describe 'ApplicationController' do
       get '/logout'
       expect(session[:user_id]).to be(nil)
     end
-    
+
     it 'redirects to \'/\'' do
       get '/logout'
       follow_redirect!
