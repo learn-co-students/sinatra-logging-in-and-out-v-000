@@ -11,17 +11,26 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-
+    # tried using params[:user] as the argument => User.find_by(params[:user]), but raised errors
+    if @user = User.find_by(username: params[:username], password: params[:password])
+      session[:user_id] = @user.id
+      redirect to "/account"
+    else
+      erb :error
+    end
   end
 
   get '/account' do
-
+    if !!session[:user_id]
+      erb :account
+    else
+      erb :error
+    end
   end
 
   get '/logout' do
-
+    session.clear
+    redirect '/'
   end
 
-
 end
-
