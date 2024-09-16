@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    
-
+    <h1>Welcome <%= @this_user.username %></h1>
+    <h3>Your Balance: <%= @this_user.balance %></h3>
+    <h4>Or you can <a href="/logout">Log Out</a></h4>
   </body>
 </html>
