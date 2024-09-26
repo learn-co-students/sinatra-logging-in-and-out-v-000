@@ -3,10 +3,28 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    
-
+    <h1>Welcome <%=Helpers.current_user(session).username%></h1>
+    <p>Your Balace: <%=Helpers.current_user(session).balance%></p>
+    <p><a href="/">Log Out</a></p>
   </body>
 </html>
+
+
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
+  </head>
+  <body id="page-top">
+    <p><a href="/logout">Log Out</a></p>
+
+      <h1>Welcome <%= Helpers.current_user(session).username %></h1>
+      <h3>Your Balance: <%= Helpers.current_user(session).balance %></h3>
+
+  </body>
+</html> -->
