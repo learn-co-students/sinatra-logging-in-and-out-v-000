@@ -1,3 +1,4 @@
+require 'pry'
 describe "Helpers" do
 
   describe 'Helpers.current_user' do

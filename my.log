@@ -1,0 +1,60 @@
+D, [2018-07-31T06:43:51.372683 #31452] DEBUG -- :   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Run options: include {:focus=>true}
+
+All examples were filtered out; ignoring {:focus=>true}
+
+Helpers
+  Helpers.current_user
+    returns the current user
+  Helpers.is_logged_in?
+    returns true or false
+
+ApplicationController
+  GET '/'
+    returns a 200 status code
+    contains a form for a user to log in
+  POST '/login'
+    returns a 302 redirect status code
+    sets session[:user_id] equal to id of the user
+    displays the correct username based on session[:user_id]
+    displays the correct balance based on session[:user_id]
+    displays a 'Log Out' link
+    shows the error page if username and ID do not match available users
+  GET '/account'
+    shows the error page if user goes directly to /account
+    displays the account information if a user is logged in (FAILED - 1)
+
+Failures:
+
+  1) ApplicationController GET '/account' displays the account information if a user is logged in
+     Failure/Error: expect(last_response.body).to include("<h1>Welcome skittles123</h1>")
+
+       expected "<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"UTF-8\">\n    <title>title</title>\n    <link...me skittles123\n    Balance: 1000.0\n    <a href=\"/logout\">Log Out</a> \n    \n  </body>\n</html>" to include "<h1>Welcome skittles123</h1>"
+       Diff:
+       @@ -1,2 +1,17 @@
+       -<h1>Welcome skittles123</h1>
+       +<!DOCTYPE html>
+       +<html>
+       +  <head>
+       +    <meta charset="UTF-8">
+       +    <title>title</title>
+       +    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+       +  </head>
+       +  <body id="page-top">
+       +  
+       +    
+       +    Welcome skittles123
+       +    Balance: 1000.0
+       +    <a href="/logout">Log Out</a> 
+       +    
+       +  </body>
+       +</html>
+     # ./spec/sinatra_logging_in_and_out_spec.rb:85:in `block (3 levels) in <top (required)>'
+
+Finished in 0.42818 seconds (files took 2.03 seconds to load)
+12 examples, 1 failure
+
+Failed examples:
+
+rspec ./spec/sinatra_logging_in_and_out_spec.rb:78 # ApplicationController GET '/account' displays the account information if a user is logged in
+
