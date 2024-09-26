@@ -12,7 +12,6 @@ describe 'ApplicationController' do
       expect(last_response.body).to include("<input")
     end
   end
-
   describe "POST '/login'" do
     before do
       @user1 = User.create(:username => "skittles123", :password => "iluvskittles", :balance => 1000)
@@ -97,7 +96,7 @@ describe 'ApplicationController' do
       get '/logout'
       expect(session[:user_id]).to be(nil)
     end
-    
+
     it 'redirects to \'/\'' do
       get '/logout'
       follow_redirect!
