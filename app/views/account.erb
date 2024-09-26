@@ -6,7 +6,44 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
+    <%# binding.pry %>
     
-
+    <% current_user = Helpers.current_user(session) %>
+    
+    <h1>Welcome <%= current_user.username %></h1>
+    <h3>Your Balance: <%= "#{current_user.balance.round(2)}" %></h3>
+      
+    <a href="/logout"><button>Log Out</button></a>
+    
+    <!-- The code below actually works, but the code above obeys the Single Responsibility Principle better. 
+    Note that @session isn't needed, because I can actually access the session hash here. -->
+    
+    <!-- <%# if Helpers.is_logged_in?(@session) %>
+      <%# user = Helpers.current_user(@session) %>
+      
+      <h1>Welcome <%#= user.username %></h1>
+      <h3>Your Balance: <%#= "#{user.balance.round(2)}" %></h3>
+      
+      <a href="/logout"><button>Log Out</button></a>
+    <%# end %> -->
+    
+    <!-------------- Experimental Code -------------------------->
+    
+    <%# if Helpers.is_logged_in?(@session) %>
+      <%# binding.pry %>
+      <%# It appears that the session is accessible from within the views, so @session isn't needed! %>
+      <%# user = Helpers.current_user(@session) %>
+      
+      <!-- <h1>Welcome <%#= user.username %></h1>
+      <h3>Your Balance: <%#= "#{user.balance.round(2)}" %></h3>
+      
+      <a href="/logout"><button>Log Out</button></a> -->
+    <%# else %>
+      <%# erb :error %>
+      <%#= render :error (This doesn't work in IRB, and it messes up the Learn IDE whenever I execute this erb code, with OR without the = sign. #render may be a Rails method, not Sinatra.) %>
+      <%# erb :error (Interesting; this doesn't work, even though I can call it from PRY) %>
+    <%# end %>
+    <%# binding.pry %>
   </body>
 </html>
+<%# binding.pry %>
