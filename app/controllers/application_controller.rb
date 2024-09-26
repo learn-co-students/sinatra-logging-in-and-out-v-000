@@ -6,22 +6,32 @@ class ApplicationController < Sinatra::Base
     set :session_secret, "secret"
   end
 
-  get '/' do
+  get '/' do  #log in please
     erb :index
   end
 
-  post '/login' do
+  post '/login' do  #processes post request from index page
+    @user = User.find_by(username: params[:username])
 
+    if @user && (@user.password = params[:password])
+      session[:user_id] = @user.id
+      redirect '/account'
+    else
+      erb :error
+    end
   end
 
   get '/account' do
-
+    @current_user = User.find_by_id(session[:user_id])
+    if @current_user
+      erb :account
+    else
+      erb :error
+    end
   end
 
   get '/logout' do
-
+    session.clear
+    redirect '/'
   end
-
-
 end
-
