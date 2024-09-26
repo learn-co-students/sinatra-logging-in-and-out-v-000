@@ -2,12 +2,21 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <title>Flatiron Bank</title>
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    <h1>Welcome to FlatBank</h1>
-    <h3>Log In Please</h3>
+    <h1>Welcome to Flatiron Bank</h1>
+    <h3>Please Log In to View Account Details</h3>
 
+    <form action="/login" method="post">
+      <label for="username">Username:</label>
+      <input id="username" type="text" name="username">
+      <p></p>
+      <label for="password">Password:</label>
+      <input id="password" type="text" name="password">
+      <p></p>
+      <input id="Log In "type="submit" name="Log In">
+    </form>
   </body>
 </html>
