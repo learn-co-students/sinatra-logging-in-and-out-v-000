@@ -2,12 +2,17 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>title</title>
+    <title>Flat Bank</title>
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
     <h1>Welcome to FlatBank</h1>
     <h3>Log In Please</h3>
+    <form action="/login" method="POST">
+    <p> username: <input type="text" name="username"> </p>
+    <p> password: <input type="password" name="password"> </p>
+    <input type="submit" value="Log in">
+  </form>
 
   </body>
 </html>
