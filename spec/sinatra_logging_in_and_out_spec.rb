@@ -22,7 +22,7 @@ describe 'ApplicationController' do
 
     it "returns a 302 redirect status code" do
       params = {
-        "username"=> "skittles123", "password" => "iluvskittles"
+        :username=> "skittles123", :password => "iluvskittles"
       }
       post '/login', params
       expect(last_response.status).to eq(302)
