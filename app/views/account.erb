@@ -3,10 +3,19 @@
   <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
+    <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">
   </head>
   <body id="page-top">
-    
+  <!--In account.erb, you'll want to use the is_logged_in? helper method
+  to only display the username and account balance if the user is logged in.-->
+  <h1>Welcome <%= Helpers.current_user(session).username %></h1>
+    <h3>Your Balance: <%= Helpers.current_user(session).balance %></h3>
 
+  <!--Otherwise, it should contain a link to the home page.
+  You'll also want to use current_user to display the username and balance.-->
+
+  <!--On the /account page, set up a link called 'Log Out' that clears the session.-->
+    <form method="POST" action="/logout">
+      <p><input type="submit" value="Log Out"></p>
   </body>
 </html>
