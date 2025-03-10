@@ -8,3 +8,6 @@ require_relative './config/environment'
 task :console do
   Pry.start
 end
+task :migrations do
+  system("rake db:migrate && rake db:migrate SINATRA_ENV=test")
+end
