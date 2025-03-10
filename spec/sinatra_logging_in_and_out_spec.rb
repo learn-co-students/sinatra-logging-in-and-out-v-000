@@ -6,7 +6,7 @@ describe 'ApplicationController' do
       get '/'
       expect(last_response.status).to eq(200)
     end
-
+ 
     it "contains a form for a user to log in" do
       get '/'
       expect(last_response.body).to include("<input")
@@ -97,7 +97,7 @@ describe 'ApplicationController' do
       get '/logout'
       expect(session[:user_id]).to be(nil)
     end
-    
+
     it 'redirects to \'/\'' do
       get '/logout'
       follow_redirect!
