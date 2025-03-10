@@ -6,7 +6,13 @@
     <link rel="stylesheet" href="stylesheets/bootstrap.css" type="text/css">  
   </head>
   <body id="page-top">
-    
+  
+  <!-- only show current user, balance, and log out if user is logged in -->
 
+    <h1>Welcome <%= Helpers.current_user(session).username %></h1>
+    <h3>Your Balance: <%= Helpers.current_user(session).balance %>.0</h3>
+    <a href="/logout">Log Out</a>
+  
+  
   </body>
 </html>
